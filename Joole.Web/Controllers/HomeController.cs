@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Joole.Dal;
+using Joole.Repository;
 using Joole.Service;
 using Joole.Web.Models;
 
@@ -10,15 +12,19 @@ namespace Joole.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IUserService userService;
-
-        public HomeController(IUserService userService)
+        //private IUserService userService;
+        //private IRepository<User> userRepository;
+        //userRepository = new IRepository<User>;
+        /* public HomeController(IUserService userService)
         {
-            this.userService = userService;
+            this._userService = userService;
         }
+       */
         [HttpGet]
             public ActionResult Index()
         {
+            UserService userService = new UserService();
+
             //var _service = new UserService();
             //var _lstUsers = _service.GetUsers();
             //return View(_lstUsers);
