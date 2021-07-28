@@ -5,16 +5,25 @@
 
 <head>
     <link rel="stylesheet" href="~/Content/login.css" type="text/css">
+    <script>
 
+    </script>
 </head>
 <body>
-    <img src="~/Images/joolelogo.PNG"/>
-    <div class="openpopup">Sign Up</div>
-    <h3>Building Product Selection Platform</h3>
+    <div class="openpopup" onclick="signup()">Sign Up</div>
+    <div class="popup">
+        <form>
+        </form>
+    </div>
+    <img src="~/Images/joolelogo.PNG" />
+    <h3 id="signinlabel">Building Product Selection Platform</h3>
     <form>
-        <input type="text" placeholder="Username or Email" class="textbox"/><br />
-        <input type="password" placeholder="password" class="textbox"/><br />
-        <input type="submit" value="Log In" />
+        <div class="center">
+            <input type="text" placeholder="Username or Email" class="textbox" /><br />
+            <input type="password" placeholder="password" class="textbox" /><br />
+        </div>
+        <input type="submit" value="Log In" id="SubmitButton" />
     </form>
+
 </body>
 
