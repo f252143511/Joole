@@ -193,7 +193,7 @@
       <Name>Joole.Dal</Name>
     </ProjectReference>
     <ProjectReference Include="..\Joole.Repository\Joole.Repository.csproj">
-      <Project>{1AA493AD-62F8-4EAE-85D2-7A265A7E75F8}</Project>
+      <Project>{1aa493ad-62f8-4eae-85d2-7a265a7e75f8}</Project>
       <Name>Joole.Repository</Name>
     </ProjectReference>
     <ProjectReference Include="..\Joole.Service\Joole.Service.csproj">
