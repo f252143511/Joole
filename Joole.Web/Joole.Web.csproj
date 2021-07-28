@@ -187,6 +187,20 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Joole.Dal\Joole.Dal.csproj">
+      <Project>{9ca83f63-2644-454f-b0ef-8190f6f8675b}</Project>
+      <Name>Joole.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Joole.Repository\Joole.Repository.csproj">
+      <Project>{1aa493ad-62f8-4eae-85d2-7a265a7e75f8}</Project>
+      <Name>Joole.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Joole.Service\Joole.Service.csproj">
+      <Project>{508994a2-8a90-4ca3-b2f6-3b3eeff396ea}</Project>
+      <Name>Joole.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
