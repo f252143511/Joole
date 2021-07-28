@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Joole.Dal;
 using Joole.Repository;
-using Joole.Web;
+using Joole.Service;
 
 namespace Joole.Web.Controllers
 {
