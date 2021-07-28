@@ -23,24 +23,8 @@ namespace Joole.Web.Controllers
         [HttpGet]
             public ActionResult Index()
         {
-            UserService userService = new UserService();
-
-            //var _service = new UserService();
-            //var _lstUsers = _service.GetUsers();
-            //return View(_lstUsers);
-
-            List<UserViewModel> model = new List<UserViewModel>();
-            userService.GetUsers().ToList().ForEach(u =>
-            {
-                //UserProfile userProfile = userProfileService.GetUserProfile(u.Id);
-                UserViewModel user = new UserViewModel
-                {
-                    Id = u.User_ID,
-                    Username = u.Username,
-                    Email = u.Email
-                };
-                model.Add(user);
-            });
+            Service.Service sv = new Service.Service();
+            var model = sv.GetUsers().ToList();
 
             return View(model);
         }

@@ -18,6 +18,8 @@ namespace Joole.Dal
         public SubCategory()
         {
             this.Products = new HashSet<Product>();
+            this.TechSpecFilters = new HashSet<TechSpecFilter>();
+            this.TypeFilters = new HashSet<TypeFilter>();
         }
     
         public int SubCategory_ID { get; set; }
@@ -27,5 +29,9 @@ namespace Joole.Dal
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TechSpecFilter> TechSpecFilters { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TypeFilter> TypeFilters { get; set; }
     }
 }

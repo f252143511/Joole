@@ -29,7 +29,10 @@ namespace Joole.Dal
         public virtual DbSet<Manufacturer> Manufacturers { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Property> Properties { get; set; }
+        public virtual DbSet<PropertyValue> PropertyValues { get; set; }
         public virtual DbSet<SubCategory> SubCategories { get; set; }
+        public virtual DbSet<TechSpecFilter> TechSpecFilters { get; set; }
+        public virtual DbSet<TypeFilter> TypeFilters { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

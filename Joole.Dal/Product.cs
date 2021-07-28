@@ -14,6 +14,12 @@ namespace Joole.Dal
     
     public partial class Product
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Product()
+        {
+            this.PropertyValues = new HashSet<PropertyValue>();
+        }
+    
         public int Product_ID { get; set; }
         public Nullable<int> Subcategory_ID { get; set; }
         public Nullable<int> Manufacturer_ID { get; set; }
@@ -21,9 +27,10 @@ namespace Joole.Dal
         public string Product_Image { get; set; }
         public string Series { get; set; }
         public string Model { get; set; }
-        public string Manufacturer { get; set; }
     
-        public virtual Manufacturer Manufacturer1 { get; set; }
+        public virtual Manufacturer Manufacturer { get; set; }
         public virtual SubCategory SubCategory { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PropertyValue> PropertyValues { get; set; }
     }
 }

@@ -1,5 +1,6 @@
-﻿@model IEnumerable<UserViewModel>
-@using Joole.Web.Models
+﻿@using Joole.Service
+@model IEnumerable<UserModel>
+
 
 @{
     ViewBag.Title = "Home Page";
@@ -9,23 +10,36 @@
     <h1>ASP.NET</h1>
     <p class="lead">ASsP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
     <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    @foreach (var item in Model)
-    {
+    <table class="table">
         <tr>
-            <td>@Html.DisplayFor(modelItem => item.Username)</td>
-            <td>@Html.DisplayFor(modelItem => item.Email)</td>
-            <td>@Html.DisplayFor(modelItem => item.Address)</td>
-            @*<td>
-                <a id="editUserModal" data-toggle="modal" asp-action="EditUser" asp-route-id="@item.Id" data-target="#modal-action-user"
-                   class="btn btn-info">
-                    <i class="glyphicon glyphicon-pencil"></i>  Edit
-                </a>
-                <a id="deleteUserModal" data-toggle="modal" asp-action="DeleteUser" asp-route-id="@item.Id" data-target="#modal-action-user" class="btn btn-danger">
-                    <i class="glyphicon glyphicon-trash"></i>  Delete
-                </a>
-            </td>*@
+            <th>
+                User_ID
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Username
+            </th>
         </tr>
-    }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User_ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+            </tr>
+
+
+        }
+        
+    </table>
 </div>
 
 <div class="row">
