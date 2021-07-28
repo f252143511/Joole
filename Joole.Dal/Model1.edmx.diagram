@@ -15,6 +15,15 @@
         <AssociationConnector Association="JooleDbModel.FK__Manufactu__User___3E52440B" ManuallyRouted="false" />
         <AssociationConnector Association="JooleDbModel.FK__Product__Manufac__440B1D61" ManuallyRouted="false" />
         <AssociationConnector Association="JooleDbModel.FK__Product__Subcate__4316F928" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="JooleDbModel.PropertyValue" Width="1.5" PointX="8.625" PointY="3" />
+        <EntityTypeShape EntityType="JooleDbModel.TechSpecFilter" Width="1.5" PointX="11.625" PointY="3.125" />
+        <EntityTypeShape EntityType="JooleDbModel.TypeFilter" Width="1.5" PointX="8.625" PointY="6.125" />
+        <AssociationConnector Association="JooleDbModel.FK__PropertyV__Produ__4BAC3F29" />
+        <AssociationConnector Association="JooleDbModel.FK__PropertyV__Prope__5535A963" />
+        <AssociationConnector Association="JooleDbModel.FK__TechSpecF__Prope__4E88ABD4" />
+        <AssociationConnector Association="JooleDbModel.FK__TypeFilte__Prope__5812160E" />
+        <AssociationConnector Association="JooleDbModel.FK__TechSpecF__Subca__571DF1D5" />
+        <AssociationConnector Association="JooleDbModel.FK__TypeFilte__Subca__5165187F" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

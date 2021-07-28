@@ -10,15 +10,17 @@ namespace Joole.Service
 {
     public class UserService : IUserService
     {
+        //UserService Constructors
         private IRepository<User> userRepository;
-        //userRepository = new IRepository<User>;
-
-        /*public UserService(IRepository<User> userRepository)
+        public UserService()
+        {
+            this.userRepository = new Repository<User>(new ApplicationDbContext());
+        }
+ 
+        public UserService(IRepository<User> userRepository)
         {
             this.userRepository = userRepository;
-        }*/
-
-        //private IRepository<UserProfile> userProfileRepository;
+        }
 
         public IEnumerable<User> GetUsers()
         {
