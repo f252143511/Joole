@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3340c61d8413415fb4b1682a1faaf1ea" Name="Diagram1">
+        <EntityTypeShape EntityType="JooleDbModel.Category" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JooleDbModel.Manufacturer" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JooleDbModel.Product" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JooleDbModel.Property" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JooleDbModel.PropertyValue" Width="1.5" PointX="7.5" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JooleDbModel.SubCategory" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JooleDbModel.TechSpecFilter" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JooleDbModel.TypeFilter" Width="1.5" PointX="8.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JooleDbModel.User" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <AssociationConnector Association="JooleDbModel.FK__SubCatego__Categ__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="JooleDbModel.FK__Manufactu__User___300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="JooleDbModel.FK__Product__Manufac__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="JooleDbModel.FK__Product__Subcate__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="JooleDbModel.FK__PropertyV__Produ__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="JooleDbModel.FK__PropertyV__Prope__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="JooleDbModel.FK__TechSpecF__Prope__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="JooleDbModel.FK__TypeFilte__Prope__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="JooleDbModel.FK__TechSpecF__Subca__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="JooleDbModel.FK__TypeFilte__Subca__37A5467C" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
