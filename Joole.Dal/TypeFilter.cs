@@ -12,19 +12,14 @@ namespace Joole.Dal
     using System;
     using System.Collections.Generic;
     
-    public partial class Product : BaseEntity
+    public partial class TypeFilter : BaseEntity
     {
-        public int Product_ID { get; set; }
-        public Nullable<int> Subcategory_ID { get; set; }
-        public Nullable<int> Manufacturer_ID { get; set; }
-        public string Product_Name { get; set; }
-        public string Product_Image { get; set; }
-        public string Series { get; set; }
-        public string Model { get; set; }
-        public string Manufacturer { get; set; }
+        public int Subcategory_ID { get; set; }
+        public Nullable<int> Property_ID { get; set; }
+        public string Type_Name { get; set; }
+        public string Type_Option { get; set; }
     
-        public virtual Manufacturer Manufacturer1 { get; set; }
+        public virtual Property Property { get; set; }
         public virtual SubCategory SubCategory { get; set; }
-        public virtual PropertyValue PropertyValue { get; set; }
     }
 }

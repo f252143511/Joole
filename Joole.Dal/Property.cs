@@ -12,11 +12,24 @@ namespace Joole.Dal
     using System;
     using System.Collections.Generic;
     
-    public partial class Property
+    public partial class Property : BaseEntity
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Property()
+        {
+            this.PropertyValues = new HashSet<PropertyValue>();
+            this.TypeFilters = new HashSet<TypeFilter>();
+        }
+    
         public int Property_ID { get; set; }
         public string Property_Name { get; set; }
         public Nullable<bool> IsType { get; set; }
         public Nullable<bool> IsTechSpec { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PropertyValue> PropertyValues { get; set; }
+        public virtual TechSpecFilter TechSpecFilter { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TypeFilter> TypeFilters { get; set; }
     }
 }
