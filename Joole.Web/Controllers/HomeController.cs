@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Joole.Dal;
 using Joole.Repository;
 using Joole.Service;
+
 namespace Joole.Web.Controllers
 {
     public class HomeController : Controller
