@@ -1,17 +1,117 @@
-﻿@{
+﻿@using Joole.Service
+@model IEnumerable<ProductModel>
+
+
+@{
     Layout = null;
+    ViewBag.Title = "ProductSummary";
 }
 
 <!DOCTYPE html>
 
 <html>
 <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="viewport" content="width=device-width" />
-    <title>Product Summary</title>
+    <title>@ViewBag.Title - Joole</title>
+    @Styles.Render("~/Content/JooleStyles/ProductSummary.css")
+    @Scripts.Render("~/Scripts/JooleScripts/ProductSummary.js")
 </head>
 <body>
+
     <div>
-    
+        @Html.Partial("_Searchbar")
+        <div class="container">
+            <div class="filter-display">
+                <form>
+                    <div id="search">
+                        <label>Search: </label>
+                        <span>
+                            <input type="submit" class="search-btn" value="Save">
+                            <button class="search-btn" id="clear">Clear</button>
+                        </span>
+                    </div>
+                    <div id="productType">
+                        Product Type ▲ ▼
+                    </div>
+                    <div id="modelYear">
+                        Model Year:
+                        <input type="text" name="beginningYear" maxlength="4" size="4"> - <input type="text" name="endingYear" maxlength="4" size="4">
+                    </div>
+                    <div id="technicalSpecifications">
+                        Technical Specifications ▲ ▼
+                    </div>
+                    <div id="sliders">
+                        <p>
+                            <label for="airflow-amount">⮃ Airflow (CFM) </label>
+                        </p>
+                        <div class="slider-container">
+                            <span id="airflow-min-amount"></span>
+                            <div class="slider" id="airflow-slider"></div>
+                            <span id="airflow-max-amount"></span>
+                        </div>
+                        <p>
+                            <label for="power-amount">⮃ Max Power (W) </label>
+                        </p>
+                        <div class="slider-container">
+                            <span id="power-min-amount"></span>
+                            <div class="slider" id="power-slider"></div>
+                            <span id="power-max-amount"></span>
+                        </div>
+                        <p>
+                            <label for="sound-amount">⮃ Sound at max speed (dBA)</label>
+                        </p>
+                        <div class="slider-container">
+                            <span id="sound-min-amount"></span>
+                            <div class="slider" id="sound-slider"></div>
+                            <span id="sound-max-amount"></span>
+                        </div>
+                        <p>
+                            <label for="sweep-amount">⮃ Fan sweep diameter (in) </label>
+                        </p>
+                        <div class="slider-container">
+                            <span id="sweep-min-amount"></span>
+                            <div class="slider" id="sweep-slider"></div>
+                            <span id="sweep-max-amount"></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="product-display">
+                <div id="category-display">
+                    <p><b>Mechanical > </b>HVAC fans</p>
+                </div>
+                <div id="products-display">
+                    @*Product card dynamically generated*@
+                    @foreach (var item in Model)
+                    {
+                        <div class="product">
+                            <img class="Product.Product_Image" src="@Url.Content("~/Images/.png")" />
+                            <b>
+                                <p class="Manufacturer.Name">@Html.DisplayFor(modelItem => item.Product_ID)</p>
+                                <p class="Product.Series">@Html.DisplayFor(modelItem => item.Series)</p>
+                                <p class="Product.Model">@Html.DisplayFor(modelItem => item.Model)</p>
+                            </b>
+                            <p class="airflow">1</p>
+                            <p class="max-power">2</p>
+                            <p class="max-sound">3</p>
+                            <p class="sweep-diameter">4</p>
+                            <form>
+                                <label><b>Compare</b></label>
+                                <input type="checkbox" value="Compare" />
+                                <input type="submit" class="btn-add" value="Add to" />
+                            </form>
+                        </div>
+                    }
+                                @*Ends here*@
+                    </div>
+            </div>
+        </div>
     </div>
+
 </body>
 </html>
+
+

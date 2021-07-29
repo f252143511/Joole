@@ -34,5 +34,24 @@ namespace Joole.Service
             }
             return NewUsers;
         }
+
+        public List<ProductModel> GetProducts()
+        {
+            List<ProductModel> NewUsers = new List<ProductModel>();
+            var result = UOW.product.GetAll();
+
+            foreach (var item in result)
+            {
+                ProductModel us = new ProductModel();
+                us.Product_ID = item.Product_ID;
+                //us.Manufacture = item.Manufacturer;
+                us.Series = item.Series;
+                us.Model = item.Model;
+                //us.UseType = item.UseType;
+                NewUsers.Add(us);
+            }
+            return NewUsers;
+        }
+
     }
 }
