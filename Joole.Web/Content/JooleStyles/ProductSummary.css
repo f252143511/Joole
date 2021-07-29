@@ -1,0 +1,95 @@
+﻿body {
+    margin: 0;
+}
+.container{
+    display: flex;
+}
+
+.filter-display {
+    width: 30%;
+    background-color: #F8F8F8;
+    border: 1px solid grey;
+}
+
+#search, #productType, #modelYear, #technicalSpecifications {
+    border: 1px solid grey;
+}
+
+#search{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-btn {
+    background-color: #5BC0DE;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+}
+
+
+.slider-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-container span{
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    padding: 2px;
+    width: 40px;
+    margin: 0px 15px;
+}
+
+.slider {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.ui-slider-handle {
+    border-radius: 50%;
+    width: 1em !important;
+    height: 1em !important;
+}
+
+.product-display{
+    width: 70%;
+}
+
+.product{
+    margin: 5px;
+    border: 1px solid grey;
+    width: 40%;
+}
+
+.btn-add {
+    background-color: #337AB7;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.searchbar {
+    background: linear-gradient(180deg, rgb(39,113,161) 0%, rgba(255,255,255,1) 100%);
+    width: 99vw;
+    height: 70px;
+    text-align: center;
+}
+.searchbar img {
+    height: 100%;
+    float: left
+}
+    .searchbar div {
+        display: inline;
+        width: 400px;
+        margin-left: 20px
+    }
+    .searchbar form {
+        color: black;
+        font: bold;
+    }
