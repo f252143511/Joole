@@ -1,18 +1,28 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Login";
 }
 
 <head>
     <link rel="stylesheet" href="~/Content/login.css" type="text/css">
     <script>
-
+        function signup() {
+            $(".popup").show()
+        }
     </script>
 </head>
 <body>
     <div class="openpopup" onclick="signup()">Sign Up</div>
     <div class="popup">
         <form>
+            <p>Register as User</p>
+            <hr />
+            <b>Image Preview</b><br />
+            <b>Your Profile Pic</b><br />
+            <input type="file" />
+            UserName:<input type="text" placeholder="User Name" /><br />
+            Email Address:<input type="email" placeholder="Email Id" /><br />
+            Password:<input type="password" placeholder="Password" /><br />
+            Confirm Password:<input type="password" placeholder="Password" /><br />
         </form>
     </div>
     <img src="~/Images/joolelogo.PNG" />
@@ -26,4 +36,6 @@
     </form>
 
 </body>
+
+
 
