@@ -1,0 +1,149 @@
+@media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+
+.navbar {
+	background-image: linear-gradient(#2471A3, #EBF5FB) !important;
+}
+
+.logo{
+	height:3rem;
+}
+
+
+#navBarSearchForm input[type=search]{width:380px !important;}
+
+.center{
+	text-align: center;
+}
+
+.carousel {
+	position: relative
+
+}
+
+.carousel .btn{
+	position: absolute;
+}
+
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev {
+  display: block;
+}
+
+.welcome{
+	padding: 55px 0;
+	text-align: center;
+	background-color: #04204a1a;
+}
+
+.welcome h1{
+	font-style: 45px;
+	margin-bottom: 55px;
+	color: #002e51;
+}
+
+.welcome {
+	font-size: 18px;
+	color: #002e51;
+}
+
+.options{
+	padding: 55px 0;
+	text-align: center;
+	background-color: #002e51;
+
+}
+
+.dropdown {
+  float: left;
+  background-color: #2471A3;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: #2471A3;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #2471A3;
+}
+
+.navbar img[alt=profilepic] {
+	width: 35px;
+	height: 40px;
+	vertical-align: middle;
+}
+
+.options h1{
+	font-size: 45px;
+	margin-bottom: 25px;
+	color: #fff;
+}
+
+.options .card {
+	border: 1px solid #002e51;
+}
+
+.options .card-body {
+	padding: .25rem .3rem;
+	background-color: #002e51;
+}
+
+.options .card-body .card-title {
+	color: #fff;
+	font-weight: 700;
+}
+
+.options .card-body .card-text{
+	color: #fff;
+}
+
+.options .btn-primary{
+	color: #fff;
+	background-color: #db323e;
+	border-color: #0062cc;
+}
+
+.options .btn-primary:hover{
+	color: #fff;
+	background-color: #0062cc;
+	border-color: #0062cc;
+}
+
+.options a:link{
+	color: red;
+	  background-color: transparent;
+  text-decoration: none;
+}
+.options a:visited {
+  color: red;
+  background-color: transparent;
+  text-decoration: none;
+}
+.options a:hover {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
+.options a:active {
+  color: green;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.btn {
+	background-color: #2471A3 !important;
+	color: #fff !important;
+	height: 40px;
+	width: 80px;
+}
