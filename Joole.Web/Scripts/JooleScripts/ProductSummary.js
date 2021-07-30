@@ -54,6 +54,9 @@ $(function () {
     $("#sweep-min-amount").val($("#sweep-slider").slider("values", 0));
     $("#sweep-max-amount").val($("#sweep-slider").slider("values", 1));
 });
+
+
+var viewdetails;
 $(document).ready(function () {
     var numchecked = 0;
     $('input[type="checkbox"]').click(function () {
@@ -69,4 +72,18 @@ $(document).ready(function () {
             numchecked--;
         }
     });
+    viewdetails = function(id) {
+        $.ajax({
+            url: '@Url.Action("ProductDetails", "Index")',
+            dataType: 'html',
+            method: 'POST',
+            data: { "id": id },
+            success: function (res) {
+                console.log("success");
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        })
+    }
 });

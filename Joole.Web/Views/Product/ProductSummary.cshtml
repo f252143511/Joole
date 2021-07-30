@@ -89,9 +89,7 @@
                     {
                         
                     <div class="product">
-                        <a href="/Product/ProductDetail/@Html.DisplayFor(modelItem => item.Product_ID)">
-                            <img class="Product.Product_Image" src="@Url.Content("~/Images/.png")" />
-                        </a>
+                            <img onclick="viewdetails(@Html.DisplayFor(modelItem => item.Product_ID))"class="Product.Product_Image" src="@Url.Content("~/Images/.png")" />
                             <p class="Manufacturer.Name"><b>@Html.DisplayFor(modelItem => item.Manufacturer)</b></p>
                             <p class="Product.Series"><b>@Html.DisplayFor(modelItem => item.Series)</b></p>
                             <p class="Product.Model"><b>@Html.DisplayFor(modelItem => item.Model)</b></p>

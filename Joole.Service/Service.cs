@@ -129,7 +129,7 @@ namespace Joole.Service
             {
                 ProductModel pr = new ProductModel();
                 pr.Product_ID = item.Product_ID;
-                var propertyValue = UOW.propertyValue.GetAll();
+                var propertyValue = UOW.propertyvalue.GetAll();
                 pr.Manufacturer = item.Product_ID.ToString(); //get manufacturer from table
                 foreach (var prop in propertyValue)
                 {
