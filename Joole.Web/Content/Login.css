@@ -4,7 +4,21 @@
     height: 700px;
     background-repeat: no-repeat;
 }
-.textbox{
-    margin-left:30%;
-    width:500px;
+
+.textbox {
+    width: 100%;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+}
+
+#SubmitButton {
+    color: white;
+    background-color: blue;
+}
+
+#signinlabel {
+    text-align: center;
 }
