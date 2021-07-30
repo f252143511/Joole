@@ -13,5 +13,9 @@ namespace Login.Controllers
         {
             return View();
         }
+        public ActionResult Register()
+        {
+            return PartialView("Registration");
+        }
     }
 }
