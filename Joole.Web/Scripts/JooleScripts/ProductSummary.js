@@ -72,18 +72,4 @@ $(document).ready(function () {
             numchecked--;
         }
     });
-    viewdetails = function(id) {
-        $.ajax({
-            url: '@Url.Action("ProductDetails", "Index")',
-            dataType: 'html',
-            method: 'POST',
-            data: { "id": id },
-            success: function (res) {
-                console.log("success");
-            },
-            error: function (err) {
-                console.log(err);
-            }
-        })
-    }
 });
