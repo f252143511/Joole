@@ -89,7 +89,7 @@
                     {
                         
                     <div class="product">
-                            <img onclick="viewdetails(@Html.DisplayFor(modelItem => item.Product_ID))"class="Product.Product_Image" src="@Url.Content("~/Images/.png")" />
+                            <img onclick="viewdetails(@Html.DisplayFor(modelItem => item.Product_ID))" class="Product.Product_Image" src="@Url.Content("~/Images/.png")" />
                             <p class="Manufacturer.Name"><b>@Html.DisplayFor(modelItem => item.Manufacturer)</b></p>
                             <p class="Product.Series"><b>@Html.DisplayFor(modelItem => item.Series)</b></p>
                             <p class="Product.Model"><b>@Html.DisplayFor(modelItem => item.Model)</b></p>
@@ -98,9 +98,9 @@
                             <p class="max-sound">@Html.DisplayFor(modelItem => item.SoundAtMaxSpeed) dBA at max speed</p>
                             <p class="sweep-diameter">@Html.DisplayFor(modelItem => item.FanSweepDiameter)" fan sweep diameter</p>
                             <form>
-                                <input class="checkbox" type="checkbox" value="Compare" />
+                                <input class="checkbox"  id="@Html.DisplayFor(modelItem => item.Product_ID)" type="checkbox" value="Compare" />
                                 <label><b>Compare</b></label>
-                                <input type="submit" class="btn-add" value="Add to" />
+                                <button onclick="compare()" class="btn-add" value="Add to" />
                             </form>
                         
                     </div>

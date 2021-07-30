@@ -57,6 +57,7 @@ $(function () {
 
 
 var viewdetails;
+var compare;
 $(document).ready(function () {
     var numchecked = 0;
     $('input[type="checkbox"]').click(function () {

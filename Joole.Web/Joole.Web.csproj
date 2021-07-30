@@ -221,6 +221,8 @@
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\Product\ProductSummary.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Product\ProductsCompare.cshtml" />
+    <Content Include="Views\Login\Registration.cshtml" />
     <Content Include="Views\Shared\_Searchbar.cshtml" />
   </ItemGroup>
   <ItemGroup>

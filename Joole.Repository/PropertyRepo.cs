@@ -16,7 +16,6 @@ namespace Joole.Repository
     public class PropertyRepo : Repository<Property>, IPropertyRepo
     {
         public PropertyRepo(DbContext context) : base(context)
-        
         {
 
         }
