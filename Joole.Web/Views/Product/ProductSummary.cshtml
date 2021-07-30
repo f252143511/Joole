@@ -38,7 +38,7 @@
                     </div>
                     <div id="modelYear">
                         Model Year:
-                        <input type="text" name="beginningYear" maxlength="4" size="4"> - <input type="text" name="endingYear" maxlength="4" size="4">
+                        <input type="text" name="beginningYear" maxlength="4" size="2"> - <input type="text" name="endingYear" maxlength="4" size="2">
                     </div>
                     <div id="technicalSpecifications">
                         Technical Specifications ▲ ▼
@@ -48,62 +48,65 @@
                             <label for="airflow-amount">⮃ Airflow (CFM) </label>
                         </p>
                         <div class="slider-container">
-                            <span id="airflow-min-amount"></span>
+                            <input readonly name="airflow-min-amount" type="text" id="airflow-min-amount">
                             <div class="slider" id="airflow-slider"></div>
-                            <span id="airflow-max-amount"></span>
+                            <input readonly name="airflow-max-amount" type="text" id="airflow-max-amount">
                         </div>
                         <p>
                             <label for="power-amount">⮃ Max Power (W) </label>
                         </p>
                         <div class="slider-container">
-                            <span id="power-min-amount"></span>
+                            <input readonly name="power-min-amount" type="text" id="power-min-amount">
                             <div class="slider" id="power-slider"></div>
-                            <span id="power-max-amount"></span>
+                            <input readonly name="power-max-amount" type="text" id="power-max-amount">
                         </div>
                         <p>
                             <label for="sound-amount">⮃ Sound at max speed (dBA)</label>
                         </p>
                         <div class="slider-container">
-                            <span id="sound-min-amount"></span>
+                            <input readonly name="sound-min-amount" type="text" id="sound-min-amount">
                             <div class="slider" id="sound-slider"></div>
-                            <span id="sound-max-amount"></span>
+                            <input readonly name="sound-max-amount" type="text" id="sound-max-amount">
                         </div>
                         <p>
                             <label for="sweep-amount">⮃ Fan sweep diameter (in) </label>
                         </p>
                         <div class="slider-container">
-                            <span id="sweep-min-amount"></span>
+                            <input readonly name="sweep-min-amount" type="text" id="sweep-min-amount">
                             <div class="slider" id="sweep-slider"></div>
-                            <span id="sweep-max-amount"></span>
+                            <input readonly name="sweep-max-amount" type="text" id="sweep-max-amount">
                         </div>
                     </div>
                 </form>
             </div>
             <div class="product-display">
                 <div id="category-display">
-                    <p><b>Mechanical > </b>HVAC fans</p>
+                    <p><b id="Category">Mechanical > </b> <span id="SubCategory">HVAC fans</span></p>
                 </div>
                 <div id="products-display">
                     @*Product card dynamically generated*@
                     @foreach (var item in Model)
                     {
-                        <div class="product">
+                        
+                    <div class="product">
+                        <a href="/Product/ProductDetail/@Html.DisplayFor(modelItem => item.Product_ID)">
                             <img class="Product.Product_Image" src="@Url.Content("~/Images/.png")" />
-                            <b>
-                                <p class="Manufacturer.Name">@Html.DisplayFor(modelItem => item.Product_ID)</p>
-                                <p class="Product.Series">@Html.DisplayFor(modelItem => item.Series)</p>
-                                <p class="Product.Model">@Html.DisplayFor(modelItem => item.Model)</p>
-                            </b>
-                            <p class="airflow">1</p>
-                            <p class="max-power">2</p>
-                            <p class="max-sound">3</p>
-                            <p class="sweep-diameter">4</p>
+                        </a>
+                            <p class="Manufacturer.Name"><b>@Html.DisplayFor(modelItem => item.Manufacturer)</b></p>
+                            <p class="Product.Series"><b>@Html.DisplayFor(modelItem => item.Series)</b></p>
+                            <p class="Product.Model"><b>@Html.DisplayFor(modelItem => item.Model)</b></p>
+                            <p class="airflow">@Html.DisplayFor(modelItem => item.AirFlow) CFM</p>
+                            <p class="max-power">@Html.DisplayFor(modelItem => item.PowerMax) W at max speed</p>
+                            <p class="max-sound">@Html.DisplayFor(modelItem => item.SoundAtMaxSpeed) dBA at max speed</p>
+                            <p class="sweep-diameter">@Html.DisplayFor(modelItem => item.FanSweepDiameter)" fan sweep diameter</p>
                             <form>
+                                <input class="checkbox" type="checkbox" value="Compare" />
                                 <label><b>Compare</b></label>
-                                <input type="checkbox" value="Compare" />
                                 <input type="submit" class="btn-add" value="Add to" />
                             </form>
-                        </div>
+                        
+                    </div>
+                    
                     }
                                 @*Ends here*@
                     </div>

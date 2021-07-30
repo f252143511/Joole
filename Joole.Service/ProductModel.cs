@@ -12,7 +12,7 @@ namespace Joole.Service
     {
         public int Product_ID { get; set; }
         //DESCRIPTION
-        public string Manufacture { get; set; }
+        public string Manufacturer { get; set; }
         public string Series { get; set; }
         public string Model { get; set; }
         //Type

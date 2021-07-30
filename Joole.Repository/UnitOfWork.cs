@@ -12,12 +12,16 @@ namespace Joole.Repository
         DbContext Context;
         public IUserRepo user;
         public IProductRepo product;
+        public IPropertyRepo property;
+        public IPropertyValueRepo propertyValue;
 
         public UnitOfWork(DbContext context)
         {
             this.Context = context;
             user = new UserRepo(context);
             product = new ProductRepo(context);
+            property = new PropertyRepo(context);
+            propertyValue = new PropertyValueRepo(context);
         }
         public void SaveChanges()
         {
