@@ -57,6 +57,7 @@ $(function () {
 
 
 var viewdetails;
+var compare;
 $(document).ready(function () {
     var numchecked = 0;
     $('input[type="checkbox"]').click(function () {
@@ -78,6 +79,24 @@ $(document).ready(function () {
             dataType: 'html',
             method: 'POST',
             data: { "id": id },
+            success: function (res) {
+                console.log("success");
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        })
+    }
+    compare = function () {
+        var list_id = [];
+        $("input[type='checkbox']:checked").each(function () {
+            list_id.push($(this).attr("id"));
+        });
+        $.ajax({
+            url: '@Url.Action("Compare", "Index")',
+            dataType: 'html',
+            method: 'POST',
+            data: list_id,
             success: function (res) {
                 console.log("success");
             },
