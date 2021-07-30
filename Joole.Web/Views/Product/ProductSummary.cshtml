@@ -1,0 +1,118 @@
+﻿@using Joole.Service
+@model IEnumerable<ProductModel>
+
+
+@{
+    Layout = null;
+    ViewBag.Title = "ProductSummary";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - Joole</title>
+    @Styles.Render("~/Content/JooleStyles/ProductSummary.css")
+    @Scripts.Render("~/Scripts/JooleScripts/ProductSummary.js")
+</head>
+<body>
+
+    <div>
+        @Html.Partial("_Searchbar")
+        <div class="container">
+            <div class="filter-display">
+                <form>
+                    <div id="search">
+                        <label>Search: </label>
+                        <span>
+                            <input type="submit" class="search-btn" value="Save">
+                            <button class="search-btn" id="clear">Clear</button>
+                        </span>
+                    </div>
+                    <div id="productType">
+                        Product Type ▲ ▼
+                    </div>
+                    <div id="modelYear">
+                        Model Year:
+                        <input type="text" name="beginningYear" maxlength="4" size="2"> - <input type="text" name="endingYear" maxlength="4" size="2">
+                    </div>
+                    <div id="technicalSpecifications">
+                        Technical Specifications ▲ ▼
+                    </div>
+                    <div id="sliders">
+                        <p>
+                            <label for="airflow-amount">⮃ Airflow (CFM) </label>
+                        </p>
+                        <div class="slider-container">
+                            <input readonly name="airflow-min-amount" type="text" id="airflow-min-amount">
+                            <div class="slider" id="airflow-slider"></div>
+                            <input readonly name="airflow-max-amount" type="text" id="airflow-max-amount">
+                        </div>
+                        <p>
+                            <label for="power-amount">⮃ Max Power (W) </label>
+                        </p>
+                        <div class="slider-container">
+                            <input readonly name="power-min-amount" type="text" id="power-min-amount">
+                            <div class="slider" id="power-slider"></div>
+                            <input readonly name="power-max-amount" type="text" id="power-max-amount">
+                        </div>
+                        <p>
+                            <label for="sound-amount">⮃ Sound at max speed (dBA)</label>
+                        </p>
+                        <div class="slider-container">
+                            <input readonly name="sound-min-amount" type="text" id="sound-min-amount">
+                            <div class="slider" id="sound-slider"></div>
+                            <input readonly name="sound-max-amount" type="text" id="sound-max-amount">
+                        </div>
+                        <p>
+                            <label for="sweep-amount">⮃ Fan sweep diameter (in) </label>
+                        </p>
+                        <div class="slider-container">
+                            <input readonly name="sweep-min-amount" type="text" id="sweep-min-amount">
+                            <div class="slider" id="sweep-slider"></div>
+                            <input readonly name="sweep-max-amount" type="text" id="sweep-max-amount">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="product-display">
+                <div id="category-display">
+                    <p><b id="Category">Mechanical > </b> <span id="SubCategory">HVAC fans</span></p>
+                </div>
+                <div id="products-display">
+                    @*Product card dynamically generated*@
+                    @foreach (var item in Model)
+                    {
+                        
+                    <div class="product">
+                            <img onclick="viewdetails(@Html.DisplayFor(modelItem => item.Product_ID))"class="Product.Product_Image" src="@Url.Content("~/Images/.png")" />
+                            <p class="Manufacturer.Name"><b>@Html.DisplayFor(modelItem => item.Manufacturer)</b></p>
+                            <p class="Product.Series"><b>@Html.DisplayFor(modelItem => item.Series)</b></p>
+                            <p class="Product.Model"><b>@Html.DisplayFor(modelItem => item.Model)</b></p>
+                            <p class="airflow">@Html.DisplayFor(modelItem => item.AirFlow) CFM</p>
+                            <p class="max-power">@Html.DisplayFor(modelItem => item.PowerMax) W at max speed</p>
+                            <p class="max-sound">@Html.DisplayFor(modelItem => item.SoundAtMaxSpeed) dBA at max speed</p>
+                            <p class="sweep-diameter">@Html.DisplayFor(modelItem => item.FanSweepDiameter)" fan sweep diameter</p>
+                            <form>
+                                <input class="checkbox" type="checkbox" value="Compare" />
+                                <label><b>Compare</b></label>
+                                <input type="submit" class="btn-add" value="Add to" />
+                            </form>
+                        
+                    </div>
+                    
+                    }
+                                @*Ends here*@
+                    </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
