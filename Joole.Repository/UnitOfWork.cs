@@ -13,7 +13,8 @@ namespace Joole.Repository
         public IUserRepo user;
         public IProductRepo product;
         public IPropertyRepo property;
-        public IPropertyValueRepo propertyValue;
+        public IPropertyValueRepo propertyvalue;
+        public IManufacturerRepo manufacturer;
 
         public UnitOfWork(DbContext context)
         {
@@ -21,7 +22,8 @@ namespace Joole.Repository
             user = new UserRepo(context);
             product = new ProductRepo(context);
             property = new PropertyRepo(context);
-            propertyValue = new PropertyValueRepo(context);
+            propertyvalue = new PropertyValueRepo(context);
+            manufacturer = new ManufacturerRepo(context);
         }
         public void SaveChanges()
         {

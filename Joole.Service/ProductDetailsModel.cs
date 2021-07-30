@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Joole.Service
 {
-    class ProductDetailsModel
+    public class ProductDetailsModel
     {
         public int Product_ID { get; set; }
         //DESCRIPTION
