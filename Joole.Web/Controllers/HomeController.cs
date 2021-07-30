@@ -21,7 +21,7 @@ namespace Joole.Web.Controllers
         }
        */
         [HttpGet]
-            public ActionResult Index()
+        public ActionResult Index()
         {
             Service.Service sv = new Service.Service();
             var model = sv.GetUsers().ToList();

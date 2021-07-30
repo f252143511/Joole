@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+    Layout = null;
+}
+<link rel="stylesheet" href="~/Content/Search.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body>
+    <img src="@Url.Content("~/Content/joolelogo.png")" id="img">
+    <div id="title">Building Product Selection Platform</div>
+    <div id="search">
+        <select id="Category_ID">
+            <option value="-1">Category</option>
+
+        </select>
+        <input type="search" id="searchInput" list="dl" placeholder="Search" autocomplete="off" />
+
+        <button class="btn" onclick="searchSubmit()"><i class="fa fa-search"></i></button>
+    </div>
+</body>
