@@ -12,7 +12,7 @@ namespace Joole.Web.Controllers
     public class HomeController : Controller
     {
         [HttpGet]
-            public ActionResult Index()
+        public ActionResult Index()
         {
             Service.Service sv = new Service.Service();
             var model = sv.GetUsers().ToList();
