@@ -24,6 +24,8 @@
         <AssociationConnector Association="JooleDbModel.FK__TypeFilte__Prope__3E52440B" ManuallyRouted="false" />
         <AssociationConnector Association="JooleDbModel.FK__TechSpecF__Subca__3D5E1FD2" ManuallyRouted="false" />
         <AssociationConnector Association="JooleDbModel.FK__TypeFilte__Subca__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="JooleDbModel.FK__TechSpecF__SubCa__398D8EEE" />
+        <AssociationConnector Association="JooleDbModel.FK__TypeFilte__SubCa__3A81B327" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

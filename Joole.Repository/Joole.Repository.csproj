@@ -72,6 +72,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ProductRepo.cs" />
+    <Compile Include="ManufacturerRepo.cs" />
+    <Compile Include="PropertyRepo.cs" />
+    <Compile Include="PropertyValueRepo.cs" />
     <Compile Include="UnitOfWork.cs" />
     <Compile Include="UserRepo.cs" />
     <Compile Include="IRepository.cs" />

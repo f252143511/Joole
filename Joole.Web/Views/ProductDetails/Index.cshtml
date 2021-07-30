@@ -1,0 +1,128 @@
+﻿@model Joole.Service.ProductDetailsModel
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    .splittable {
+        float: left;
+        width: 50%;
+    }
+    table tr th {
+        background-color: #ddd;
+    }
+    .left table tr th {
+        width: 50%;
+    }
+</style>
+<h2>Index</h2>
+<div>
+<header>Product Summary</header>
+</div>
+<div>
+    <div class="left splittable">
+        <div id="descriptionTable">
+            <table class="table table-bordered">
+                <caption>DESCRIPTION</caption>
+                <tr>
+                    <th>Manufacture</th>
+                    <td>@Html.DisplayFor(model => model.Manufacture)</td>
+                </tr>
+                <tr>
+                    <th>Series</th>
+                    <td>@Html.DisplayFor(model => model.Series)</td>
+                </tr>
+                <tr>
+                    <th>Model</th>
+                    <td>@Html.DisplayFor(model => model.Model)</td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <table class="table table-bordered">
+                <caption>TYPE</caption>
+                <tr>
+                    <th>Use Type</th>
+                    <td>@Html.DisplayFor(model => model.UseType)</td>
+                </tr>
+                <tr>
+                    <th>Application</th>
+                    <td>@Html.DisplayFor(model => model.Application)</td>
+                </tr>
+                <tr>
+                    <th>Mounting Location</th>
+                    <td>@Html.DisplayFor(model => model.MountingLocation)</td>
+                </tr>
+                <tr>
+                    <th>Accessories</th>
+                    <td>@Html.DisplayFor(model => model.Accessories)</td>
+                </tr>
+                <tr>
+                    <th>Model Year</th>
+                    <td>@Html.DisplayFor(model => model.ModelYear)</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="splittable">
+        <table class="table table-bordered">
+            <caption>TECHNICAL SPECIFICATIONS </caption>
+            <tr>
+                <th>Air Flow(CFM)</th>
+                <td colspan="4">@Html.DisplayFor(model => model.AirFlow)</td>
+            </tr>
+            <tr>
+                <th>Power(W)</th>
+                <th>Min</th>
+                <td>@Html.DisplayFor(model => model.PowerMin)</td>
+                <th>Max</th>
+                <td>@Html.DisplayFor(model => model.PowerMax)</td>
+            </tr>
+            <tr>
+                <th>Operating Voltage(VAC)</th>
+                <th>Min</th>
+                <td>@Html.DisplayFor(model => model.OperatingVoltageMin)</td>
+                <th>Max</th>
+                <td>@Html.DisplayFor(model => model.OperatingVoltageMax)</td>
+            </tr>
+            <tr>
+                <th>Operating Voltage(VAC)</th>
+                <th>Min</th>
+                <td>@Html.DisplayFor(model => model.OperatingVoltageMin)</td>
+                <th>Max</th>
+                <td>@Html.DisplayFor(model => model.OperatingVoltageMax)</td>
+            </tr>
+            <tr>
+                <th>Fan speed (RPM)</th>
+                <th>Min</th>
+                <td>@Html.DisplayFor(model => model.FanSpeedMin)</td>
+                <th>Max</th>
+                <td>@Html.DisplayFor(model => model.FanSpeedMax)</td>
+            </tr>
+            <tr>
+                <th>Number of fan speeds</th>
+                <td colspan="4">@Html.DisplayFor(model => model.NumberOfFanSpeed)</td>
+            </tr>
+            <tr>
+                <th>Sound at max speed (dBA)</th>
+                <td colspan="4">@Html.DisplayFor(model => model.SoundAtMaxSpeed)</td>
+            </tr>
+            <tr>
+                <th>Fan sweep diameter (in)</th>
+                <td colspan="4">@Html.DisplayFor(model => model.FanSweepDiameter)</td>
+            </tr>
+            <tr>
+                <th>Height (in)</th>
+                <th>Min</th>
+                <td>@Html.DisplayFor(model => model.HeightMin)</td>
+                <th>Max</th>
+                <td>@Html.DisplayFor(model => model.HeightMax)</td>
+            </tr>
+            <tr>
+                <th>Weight (lbs)</th>
+                <td colspan="4">@Html.DisplayFor(model => model.Weight)</td>
+            </tr>
+        </table>
+    </div>
+</div>
+

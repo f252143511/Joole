@@ -18,6 +18,7 @@ namespace Joole.Repository
             this.context = context;
 
         }
+        
         public IEnumerable<T> GetAll()
         {
             return context.Set<T>().ToList();
