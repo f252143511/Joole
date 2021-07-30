@@ -1,10 +1,24 @@
 ﻿body {
     background: rgb(0,118,166);
-    background: linear-gradient(180deg, rgba(0,118,166,1) 0%, rgba(255,255,255,1) 100%);
+    background: linear-gradient(180deg, rgb(39,113,161) 0%, rgba(255,255,255,1) 100%);
     height: 700px;
     background-repeat: no-repeat;
 }
-.textbox{
-    margin-left:30%;
-    width:500px;
+
+.textbox {
+    width: 100%;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+}
+
+#SubmitButton {
+    color: white;
+    background-color: blue;
+}
+
+#signinlabel {
+    text-align: center;
 }
