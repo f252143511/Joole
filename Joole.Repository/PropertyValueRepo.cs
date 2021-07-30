@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.Entity;
 using Joole.Dal;
 
 namespace Joole.Repository
 {
-
 
     public interface IPropertyValueRepo : IRepository<PropertyValue>
     {
@@ -16,7 +15,7 @@ namespace Joole.Repository
     }
     public class PropertyValueRepo : Repository<PropertyValue>, IPropertyValueRepo
     {
-        public PropertyValueRepo(DbContext context): base(context)
+        public PropertyValueRepo(DbContext context) : base(context)
         {
 
         }

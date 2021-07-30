@@ -24,7 +24,6 @@ namespace Joole.Repository
             property = new PropertyRepo(context);
             propertyvalue = new PropertyValueRepo(context);
             manufacturer = new ManufacturerRepo(context);
-
         }
         public void SaveChanges()
         {
