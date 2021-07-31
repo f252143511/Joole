@@ -27,7 +27,7 @@ namespace Joole.Repository
             propertyvalue = new PropertyValueRepo(context);
             manufacturer = new ManufacturerRepo(context);
             category = new CategoryRepo(context);
-            subcategory = new SubCategoryRepo(context);
+            subcategory = new SubCategoryRepo(Context);
         }
         public void SaveChanges()
         {

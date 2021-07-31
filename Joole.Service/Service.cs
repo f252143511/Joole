@@ -288,3 +288,80 @@ namespace Joole.Service
         }
 
     }*/
+
+        public List<SearchModel> GetCategoryListAll()
+        {
+            List<SearchModel> categories = new List<SearchModel>();
+            var result = UOW.category.GetAll();
+            foreach (var item in result)
+            {
+                SearchModel sm = new SearchModel();
+                sm.Category_ID = item.Category_ID;
+                sm.Category_Name = item.Category_Name;
+                categories.Add(sm);
+            }
+            return categories;
+        }
+
+        public List<SearchModel> GetSubCategoryListAll()
+        {
+            List<SearchModel> subcategories = new List<SearchModel>();
+            var result = UOW.subcategory.GetAll();
+            foreach (var item in result)
+            {
+                SearchModel sm = new SearchModel();
+                sm.Category_ID = (int)item.Category_ID;
+                sm.SubCategory_ID = item.SubCategory_ID;
+                sm.SubCategoryName = item.SubCategoryName;
+                subcategories.Add(sm);
+            }
+            return subcategories;
+        }
+
+        public List<SearchModel> GetSubCategoryList(int Category_ID)
+        {
+            List<SearchModel> subcategories = new List<SearchModel>();
+            var result = UOW.subcategory.GetAll();
+            if (Category_ID != -1)
+            {
+                foreach (var item in result)
+                {
+                    if (item.Category_ID == Category_ID)
+                    {
+                        SearchModel sm = new SearchModel();
+                        sm.SubCategory_ID = item.SubCategory_ID;
+                        sm.SubCategoryName = item.SubCategoryName;
+                        subcategories.Add(sm);
+                    }
+
+                }
+            }
+            else
+            {
+                return GetSubCategoryListAll();
+            }
+            return subcategories;
+        }
+
+        public int GetSubcategoryId(String SubCategoryName)
+        {
+            var result = UOW.subcategory.GetAll();
+            String name = "";
+            if (SubCategoryName != null)
+            {
+                name = SubCategoryName.ToLower();
+            }
+            foreach (var item in result)
+            {
+                int strLen = item.SubCategoryName.Length;
+                String strName = item.SubCategoryName.ToLower().Substring(0, strLen - 1);
+                if (name.Equals(strName))
+                {
+                    return item.SubCategory_ID;
+                }
+            }
+            return -1;
+        }
+
+    }
+}
