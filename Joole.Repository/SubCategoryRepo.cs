@@ -8,6 +8,7 @@ using Joole.Dal;
 
 namespace Joole.Repository
 {
+
     public interface ISubCategoryRepo : IRepository<SubCategory>
     {
 

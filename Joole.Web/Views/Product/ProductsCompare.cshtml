@@ -1,7 +1,8 @@
-﻿
+﻿@using Joole.Service
+@model IEnumerable<ProductModel>
+
 @{
     ViewBag.Title = "ProductsCompare";
-    Layout = "null";
 }
 
 <!-- Navigation Bar Start -->
@@ -55,6 +56,9 @@
 
 <div class="container">
     <table class="table table-bordered table-image table-md">
+        @foreach (var item in Model)
+        {
+
         <thead>
             <tr>
                 <td class="w-25">
@@ -90,8 +94,8 @@
                 <td>dbo</td>
             </tr>
             <tr>
-                <th scope="row">dbo3</th>
-                <td>dbo</td>
+                <th scope="row">Model</th>
+                <td>@Html.DisplayFor(modelItem => item.Model)</td>
                 <td>dbo</td>
                 <td>dbo</td>
             </tr>
@@ -140,6 +144,7 @@
                 <th scope="col" colspan="4">TECHNICAL SPECIFACTIONS</th>
             </tr>
             </tbody>
+        }
     </table>
 </div>
 
