@@ -244,6 +244,7 @@ namespace Joole.Service
             {
                 ProductModel pr = new ProductModel();
                 pr.Model = item.Model;
+                pr.Series = item.Series;
                 Products.Add(pr);
             }
             return Products;
