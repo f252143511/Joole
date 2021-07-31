@@ -11,6 +11,9 @@ namespace Joole.Service
     public class ProductModel
     {
         public int Product_ID { get; set; }
+        public string Image { get; set; }
+        public string Category { get; set; }
+        public string SubCategory { get; set; }
         //DESCRIPTION
         public string Manufacturer { get; set; }
         public string Series { get; set; }

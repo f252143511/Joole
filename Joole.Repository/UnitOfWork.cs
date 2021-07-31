@@ -15,6 +15,8 @@ namespace Joole.Repository
         public IPropertyRepo property;
         public IPropertyValueRepo propertyvalue;
         public IManufacturerRepo manufacturer;
+        public ICategoryRepo category;
+        public ISubCategoryRepo subcategory;
 
         public UnitOfWork(DbContext context)
         {
@@ -24,6 +26,8 @@ namespace Joole.Repository
             property = new PropertyRepo(context);
             propertyvalue = new PropertyValueRepo(context);
             manufacturer = new ManufacturerRepo(context);
+            category = new CategoryRepo(context);
+            subcategory = new SubCategoryRepo(context);
         }
         public void SaveChanges()
         {

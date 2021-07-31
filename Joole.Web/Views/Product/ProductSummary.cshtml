@@ -81,7 +81,7 @@
             </div>
             <div class="product-display">
                 <div id="category-display">
-                    <p><b id="Category">Mechanical > </b> <span id="SubCategory">HVAC fans</span></p>
+                    <p><b id="Category"> > </b> <span id="SubCategory">HVAC fans</span></p>
                 </div>
                 <div id="products-display">
                     @*Product card dynamically generated*@
@@ -89,25 +89,26 @@
                     {
                         
                     <div class="product">
-                            <img onclick="viewdetails(@Html.DisplayFor(modelItem => item.Product_ID))" class="Product.Product_Image" src="@Url.Content("~/Images/.png")" />
-                            <p class="Manufacturer.Name"><b>@Html.DisplayFor(modelItem => item.Manufacturer)</b></p>
-                            <p class="Product.Series"><b>@Html.DisplayFor(modelItem => item.Series)</b></p>
-                            <p class="Product.Model"><b>@Html.DisplayFor(modelItem => item.Model)</b></p>
-                            <p class="airflow">@Html.DisplayFor(modelItem => item.AirFlow) CFM</p>
-                            <p class="max-power">@Html.DisplayFor(modelItem => item.PowerMax) W at max speed</p>
-                            <p class="max-sound">@Html.DisplayFor(modelItem => item.SoundAtMaxSpeed) dBA at max speed</p>
-                            <p class="sweep-diameter">@Html.DisplayFor(modelItem => item.FanSweepDiameter)" fan sweep diameter</p>
-                            <form>
-                                <input class="checkbox"  id="@Html.DisplayFor(modelItem => item.Product_ID)" type="checkbox" value="Compare" />
-                                <label><b>Compare</b></label>
-                                <button onclick="compare()" class="btn-add" value="Add to" />
-                            </form>
+                        <a href="~/ProductDetails/Index?id=@Html.DisplayFor(modelItem => item.Product_ID)">
+                            <img class="Product.Product_Image" src="@Html.DisplayFor(modelItem => item.Image)" height="150px"/>
+                        </a>
+                        <p class="Manufacturer.Name"><b>@Html.DisplayFor(modelItem => item.Manufacturer)</b></p>
+                        <p class="Product.Series"><b>@Html.DisplayFor(modelItem => item.Series)</b></p>
+                        <p class="Product.Model"><b>@Html.DisplayFor(modelItem => item.Model)</b></p>
+                        <p class="airflow">@Html.DisplayFor(modelItem => item.AirFlow) CFM</p>
+                        <p class="max-power">@Html.DisplayFor(modelItem => item.PowerMax) W at max speed</p>
+                        <p class="max-sound">@Html.DisplayFor(modelItem => item.SoundAtMaxSpeed) dBA at max speed</p>
+                        <p class="sweep-diameter">@Html.DisplayFor(modelItem => item.FanSweepDiameter)" fan sweep diameter</p>
+                        <div>
+                            <input class="checkbox" id="@Html.DisplayFor(modelItem => item.Product_ID)" type="checkbox" value="Compare" />
+                            <label><b>Compare</b></label>
+                            <button onclick="compare()" class="btn-add">Add to</button>
+                        </div>
+                    </div>
                         
-                    </div>
-                    
                     }
-                                @*Ends here*@
-                    </div>
+                    @*Ends here*@
+                </div>
             </div>
         </div>
     </div>

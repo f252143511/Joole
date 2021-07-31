@@ -92,17 +92,11 @@ $(document).ready(function () {
         $("input[type='checkbox']:checked").each(function () {
             list_id.push($(this).attr("id"));
         });
-        $.ajax({
-            url: '@Url.Action("Compare", "Index")',
-            dataType: 'html',
-            method: 'POST',
-            data: list_id,
-            success: function (res) {
-                console.log("success");
-            },
-            error: function (err) {
-                console.log(err);
-            }
-        })
+        var param = "";
+        for (var i = 0; i < list_id.length; i++) {
+            param += "id" + (i+1) + "=" + list_id[i] + "&";
+        }
+        window.location.replace('~/Product/ProductsCompare?'+ param);
+        
     }
 });
