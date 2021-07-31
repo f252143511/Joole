@@ -112,7 +112,11 @@
             </div>
         </div>
     </div>
-
+    <script>
+        viewdetails = function (productID) { 
+            window.location.href = '@Url.Action("Index", "ProductDetails" )' + '?' + $.param({ id: productID });
+        }
+    </script>
 </body>
 </html>
 
