@@ -13,9 +13,10 @@ namespace Joole.Service
     {
         public static readonly JooleDbEntities context = new JooleDbEntities();
         UnitOfWork UOW = new UnitOfWork(context);
+        private Repository<User> userRepository;
         public Service()
         {
-
+            userRepository = new Repository<User>(context);
         }
         public ProductDetailsModel GetProductDetails(int ID)
         {
@@ -119,7 +120,7 @@ namespace Joole.Service
             }
             return NewUsers;
         }
-        public Boolean validateUser(String useremail, String password)
+        public Boolean ValidateUser(String useremail, String password)
         {
             var result = UOW.user.GetAll();
             var query = from u in result where u.Email == useremail && u.Password == password select u;
@@ -133,6 +134,11 @@ namespace Joole.Service
                 return true;
             }
             return false;
+        }
+        public void CreateUser(User u)
+        {
+
+            userRepository.Insert(u);
         }
         public List<ProductModel> GetProducts()
         {
