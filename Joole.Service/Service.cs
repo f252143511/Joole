@@ -120,6 +120,22 @@ namespace Joole.Service
             return NewUsers;
         }
 
+        public Boolean validateUser(String useremail, String password)
+        {
+            var result = UOW.user.GetAll();
+            var query = from u in result where u.Email == useremail && u.Password == password select u;
+            if(query.Count() != 0)
+            {
+                return true;
+            }
+            var query2 = from u in result where u.Username == useremail && u.Password == password select u;
+            if(query2.Count() != 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public List<ProductModel> GetProducts(string Subcategory)
         {
             var products = UOW.product.GetAll();
@@ -249,8 +265,7 @@ namespace Joole.Service
             }
             return Products;
         }
-    }
-}
+
         /*List<ProductModel> NewProducts = new List<ProductModel>();
             var result = UOW.product.GetAll();
 
