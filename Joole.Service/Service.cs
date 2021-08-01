@@ -121,7 +121,7 @@ namespace Joole.Service
             return NewUsers;
         }
 
-        public Boolean validateUser(String useremail, String password)
+        public Boolean ValidateUser(String useremail, String password)
         {
             var result = UOW.user.GetAll();
             var query = from u in result where u.Email == useremail && u.Password == password select u;
