@@ -135,11 +135,7 @@ namespace Joole.Service
             }
             return false;
         }
-        public void CreateUser(User u)
-        {
-
-            userRepository.Insert(u);
-        }
+        
         public List<ProductModel> GetProducts()
         {
             List<ProductModel> NewProducts = new List<ProductModel>();
