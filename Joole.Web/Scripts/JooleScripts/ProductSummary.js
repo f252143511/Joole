@@ -54,6 +54,7 @@ $(function () {
     $("#sweep-min-amount").val($("#sweep-slider").slider("values", 0));
     $("#sweep-max-amount").val($("#sweep-slider").slider("values", 1));
 });
+
 $(document).ready(function () {
     var numchecked = 0;
     $('input[type="checkbox"]').click(function () {

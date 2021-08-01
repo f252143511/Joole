@@ -4,36 +4,49 @@
 
 <head>
     <link rel="stylesheet" href="~/Content/login.css" type="text/css">
+    <link rel="stylesheet" href="@Url.Content("~/Content/Styles/bootstrap.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/Styles/bootstrap-responsive.min.css")"></link>
+    <script src="@Url.Content("~/Scripts/jquery-1.8.3.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.min.js")" type="text/javascript"></script>
     <script>
-        function signup() {
-            $(".popup").show()
-        }
+
     </script>
 </head>
 <body>
-    <div class="openpopup" onclick="signup()">Sign Up</div>
-    <div class="popup">
-        <form>
-            <p>Register as User</p>
-            <hr />
-            <b>Image Preview</b><br />
-            <b>Your Profile Pic</b><br />
-            <input type="file" />
-            UserName:<input type="text" placeholder="User Name" /><br />
-            Email Address:<input type="email" placeholder="Email Id" /><br />
-            Password:<input type="password" placeholder="Password" /><br />
-            Confirm Password:<input type="password" placeholder="Password" /><br />
-        </form>
+    <a type="button" class="btn" href="#popupform" data-toggle="modal" style="color: black; margin-left: 90%;">Sign Up</a>
+    <div id="popupform" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a class="close" data-dismiss="modal">&times;</a>
+                    <h3>Register as User</h3>
+                </div>
+                <div class="modal-body">
+                    <form action="Registration">
+                        <b>Image Preview</b><br />
+                        <b>Your Profile Pic</b><br />
+                        <input type="file" name="picture" required/><br />
+                        UserName:<input type="text" name="user" placeholder="User Name" required/><br />
+                        Email Address:<input type="email" name="email" placeholder="Email Id" required/><br />
+                        Password:<input type="password" name="password" placeholder="Password" required/><br />
+                        Confirm Password:<input type="password" placeholder="Password" required/><br />
+                        <input type="submit" value="Sign up">
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
+    <br />
     <img src="~/Images/joolelogo.PNG" />
     <h3 id="signinlabel">Building Product Selection Platform</h3>
-    <form>
+    @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+    {
         <div class="center">
-            <input type="text" placeholder="Username or Email" class="textbox" /><br />
-            <input type="password" placeholder="password" class="textbox" /><br />
+            <input type="text" placeholder="Username or Email" class="textbox" name="Useremail"/><br />
+            <input type="password" placeholder="password" class="textbox" name="Password"/><br />
+            <input type="submit" value="Log In" id="SubmitButton" />
         </div>
-        <input type="submit" value="Log In" id="SubmitButton" />
-    </form>
+    }
 
 </body>
 

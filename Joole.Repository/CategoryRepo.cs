@@ -9,18 +9,14 @@ using Joole.Dal;
 namespace Joole.Repository
 {
 
-
-    public interface IUserRepo: IRepository<User>
+    public interface ICategoryRepo : IRepository<Category>
     {
 
     }
-    public class UserRepo:Repository<User>,IUserRepo
-    {
-        public UserRepo(DbContext context): base(context)
-        {
 
-        }
-        public void CreateUser()
+    public class CategoryRepo : Repository<Category>, ICategoryRepo
+    {
+        public CategoryRepo(DbContext context) : base(context)
         {
 
         }

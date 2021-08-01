@@ -10,10 +10,10 @@ namespace Joole.Web.Controllers
     {
         // GET: ProductDetails
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
             Service.Service sv = new Service.Service();
-            var model = sv.GetProductDetails(2);
+            var model = sv.GetProductDetails(id);
             
             return View(model);
         }
