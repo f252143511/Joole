@@ -138,6 +138,8 @@ namespace Joole.Service
         }
         public void CreateUser(User u)
         {
+            userRepository.Insert(u);
+        }
 
         public List<ProductModel> GetProducts(string Subcategory, int beginningYear, int endingYear)
         {
