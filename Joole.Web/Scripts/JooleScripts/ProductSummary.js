@@ -57,6 +57,7 @@ $(function () {
 
 
 var viewdetails;
+var compare;
 $(document).ready(function () {
     var numchecked = 0;
     $('input[type="checkbox"]').click(function () {
@@ -85,5 +86,17 @@ $(document).ready(function () {
                 console.log(err);
             }
         })
+    }
+    compare = function () {
+        var list_id = [];
+        $("input[type='checkbox']:checked").each(function () {
+            list_id.push($(this).attr("id"));
+        });
+        var param = "";
+        for (var i = 0; i < list_id.length; i++) {
+            param += "id" + (i+1) + "=" + list_id[i] + "&";
+        }
+        window.location.replace('~/Product/ProductsCompare?'+ param);
+        
     }
 });
