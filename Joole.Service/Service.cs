@@ -353,7 +353,6 @@ namespace Joole.Service
                         sm.SubCategoryName = item.SubCategoryName;
                         subcategories.Add(sm);
                     }
-
                 }
             }
             else
