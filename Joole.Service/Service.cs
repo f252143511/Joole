@@ -13,9 +13,10 @@ namespace Joole.Service
     {
         public static readonly JooleDbEntities context = new JooleDbEntities();
         UnitOfWork UOW = new UnitOfWork(context);
+        private Repository<User> userRepository;
         public Service()
         {
-
+            userRepository = new Repository<User>(context);
         }
         public ProductDetailsModel GetProductDetails(int ID)
         {
@@ -135,7 +136,11 @@ namespace Joole.Service
             }
             return false;
         }
+        public void CreateUser(User u)
+        {
 
+            userRepository.Insert(u);
+        }
         public List<ProductModel> GetProducts(string Subcategory)
         {
             var products = UOW.product.GetAll();

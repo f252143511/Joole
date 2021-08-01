@@ -11,12 +11,12 @@ namespace Joole.Repository
     public class Repository<T> : IRepository<T> where T : class
     {
         private readonly DbContext context;
+        private DbSet<T> entities;
         string errorMessage = string.Empty;
-
         public Repository(DbContext context)
         {
             this.context = context;
-
+            entities = context.Set<T>();
         }
         
         public IEnumerable<T> GetAll()
@@ -28,15 +28,16 @@ namespace Joole.Repository
         {
             return context.Set<T>().Find(id);
         }
-        //public void Insert(T entity)
-        //{
-        //    if (entity == null)
-        //    {
-        //        throw new ArgumentNullException("entity");
-        //    }
-        //    entities.Add(entity);
-        //    context.SaveChanges();
-        //}
+        public void Insert(T entity)
+        {
+            
+            if (entity == null)
+            {
+                throw new ArgumentNullException("entity");
+            }
+            entities.Add(entity);
+            context.SaveChanges();
+        }
 
         //public void Update(T entity)
         //{
@@ -65,10 +66,10 @@ namespace Joole.Repository
         //    entities.Remove(entity);
         //}
 
-        //public void SaveChanges()
-        //{
-        //    context.SaveChanges();
-        //}
+        public void SaveChanges()
+        {
+            context.SaveChanges();
+        }
 
     }
 }

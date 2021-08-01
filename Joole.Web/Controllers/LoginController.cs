@@ -17,7 +17,7 @@ namespace Login.Controllers
             Service sv = new Service();
             String useremail = Request.Form["Useremail"];
             String password = Request.Form["Password"];
-            if (sv.validateUser(useremail,password))
+            if (sv.ValidateUser(useremail,password))
             {
                 return RedirectToAction("Index", "Search");
             }
@@ -26,8 +26,15 @@ namespace Login.Controllers
                 return View();
             }
         }
-        public ActionResult Register()
+        public ActionResult Registration()
         {
+            Service sv = new Service();
+            string username = Request.Form["user"];
+            string password = Request.Form["password"];
+            string email = Request.Form["email"];
+            string image = Request.Form["picture"];
+            User u = new User(username, password, email, image);
+            sv.CreateUser(u);
             return View("Login");
         }
     }

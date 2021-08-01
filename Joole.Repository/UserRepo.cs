@@ -5,11 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using Joole.Dal;
+using System.Web.Mvc;
+using System.Data.Entity.Validation;
 
 namespace Joole.Repository
 {
 
-
+    
     public interface IUserRepo: IRepository<User>
     {
 
@@ -20,9 +22,6 @@ namespace Joole.Repository
         {
 
         }
-        public void CreateUser()
-        {
-
-        }
+        
     }
 }
