@@ -28,9 +28,9 @@ select {
     height: 25px;
 }
 
-    select option {
-        background-color: white;
-    }
+select option {
+    background-color: white;
+}
 
 #searchInput {
     width: 350px;
