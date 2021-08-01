@@ -17,7 +17,7 @@ namespace Login.Controllers
             Service sv = new Service();
             String useremail = Request.Form["Useremail"];
             String password = Request.Form["Password"];
-            if (sv.ValidateUser(useremail,password))
+            if (sv.validateUser(useremail,password))
             {
                 return RedirectToAction("Index", "Search");
             }
