@@ -249,8 +249,6 @@ namespace Joole.Service
             }
             return Products;
         }
-    }
-}
         /*List<ProductModel> NewProducts = new List<ProductModel>();
             var result = UOW.product.GetAll();
 

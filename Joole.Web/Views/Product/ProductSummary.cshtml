@@ -118,6 +118,39 @@
         }
     </script>
 </body>
-</html>
 
+</html>
+<script>
+    var compare;
+    $(document).ready(function () {
+        compare = function () {
+            var list_id = [];
+            $("input[type='checkbox']:checked").each(function () {
+                list_id.push($(this).attr("id"));
+            });
+            var param = "";
+            console.log(list_id);
+            if (list_id[0]) {
+                param += "id1=" + list_id[0];
+            }
+            else {
+                param += "id1=0";
+            }
+            if (list_id[1]) {
+                param += "&id2=" + list_id[1];
+            }
+            else {
+                param += "&id2=0";
+            }
+            if (list_id[2]) {
+                param += "&id3=" + list_id[2];
+            }
+            else {
+                param += "&id3=0";
+            }
+            window.location.href = '@Url.Action("ProductsCompare", "Product")?' + param;
+
+        }
+    });
+</script>
 
