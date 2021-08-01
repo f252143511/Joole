@@ -49,7 +49,7 @@
         searchSubmit = function () {
             var searchInput = document.getElementById("searchInput").value;
             if (searchInput != "") {
-                window.location.href = '@Url.Action("SearchSubmit", "Search")/' + searchInput;
+                window.location.href = '@Url.Action("ProductSummary", "Product")?Subcategory=' + searchInput;
             }
         }
     });
