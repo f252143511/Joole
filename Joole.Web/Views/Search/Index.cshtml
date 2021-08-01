@@ -3,15 +3,15 @@
     ViewBag.Title = "Search";
 }
 <title>@ViewBag.Title</title>
-<link rel="stylesheet" href="~/Content/Search.css" />
+<link rel="stylesheet" href="~/Content/Search.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <body>
-    <img src="@Url.Content("~/Images/joolelogo.png")" id="img">
-    <div id="title">Building Product Selection Platform</div>
+    <img src="@Url.Content("~/Images/joolelogo.png")">
+    <h2 id="title">Building Product Selection Platform</h2>
     <div id="search">
         <select id="Category_ID">
-            <option value="-1">Category</option>
+            <option value="-1" disabled selected hidden>Category</option>
             @foreach (var item in ViewBag.CategoryList)
             {
                 <option value="@item.Value">@item.Text</option>
