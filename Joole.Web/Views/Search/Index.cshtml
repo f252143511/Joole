@@ -1,21 +1,56 @@
-﻿
-@{
-    ViewBag.Title = "Search";
+﻿@{
     Layout = null;
+    ViewBag.Title = "Search";
 }
+<title>@ViewBag.Title</title>
 <link rel="stylesheet" href="~/Content/Search.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <body>
-    <img src="@Url.Content("~/Content/joolelogo.png")" id="img">
+    <img src="@Url.Content("~/Images/joolelogo.png")" id="img">
     <div id="title">Building Product Selection Platform</div>
     <div id="search">
         <select id="Category_ID">
             <option value="-1">Category</option>
-
+            @foreach (var item in ViewBag.CategoryList)
+            {
+                <option value="@item.Value">@item.Text</option>
+            }
         </select>
         <input type="search" id="searchInput" list="dl" placeholder="Search" autocomplete="off" />
-
+        <datalist id="dl">
+            @foreach (var item in ViewBag.SubCategoryList)
+            {
+                <option>@item.Text</option>
+            }
+        </datalist>
         <button class="btn" onclick="searchSubmit()"><i class="fa fa-search"></i></button>
     </div>
 </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    var searchSubmit;
+    $(document).ready(function () {
+        $("#Category_ID").change(function () {
+            var category_id = $(this).val();
+            if (category_id == "") category_id = -1;
+            $.ajax({
+                type: "POST",
+                url: "/Search/ChangeCategory?Category_ID=" + category_id,
+                contentType: "html",
+                success: function (response) {
+                    $("#dl").empty();
+                    $("#dl").append(response);
+                }
+            });
+        });
+
+        searchSubmit = function () {
+            var searchInput = document.getElementById("searchInput").value;
+            if (searchInput != "") {
+                window.location.href = '@Url.Action("SearchSubmit", "Search")/' + searchInput;
+            }
+        }
+    });
+</script>
