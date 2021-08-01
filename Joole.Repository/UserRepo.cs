@@ -20,5 +20,9 @@ namespace Joole.Repository
         {
 
         }
+        public void CreateUser()
+        {
+
+        }
     }
 }
