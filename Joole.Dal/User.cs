@@ -19,6 +19,13 @@ namespace Joole.Dal
         {
             this.Manufacturers = new HashSet<Manufacturer>();
         }
+        public User(string u, string p, string e, string image)
+        {
+            Username = u;
+            Password = p;
+            Email = e;
+            Image = image;
+        }
     
         public int User_ID { get; set; }
         public string Username { get; set; }

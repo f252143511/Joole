@@ -1,15 +1,13 @@
-﻿@{
+﻿
+@{
     Layout = null;
-    ViewBag.Title = "Search";
 }
-<title>@ViewBag.Title</title>
-<link rel="stylesheet" href="~/Content/Search.css">
+<link rel="stylesheet" href="~/Content/SearchBar.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<body>
-    <img src="@Url.Content("~/Images/joolelogo.png")">
-    <h2 id="title">Building Product Selection Platform</h2>
+<header class="searchbar">
     <div id="search">
+        <img src="@Url.Content("~/Images/joolelogo.png")">
         <select id="Category_ID">
             <option value="-1" disabled selected hidden>Category</option>
             @foreach (var item in ViewBag.CategoryList)
@@ -26,7 +24,7 @@
         </datalist>
         <button class="btn" onclick="searchSubmit()"><i class="fa fa-search"></i></button>
     </div>
-</body>
+</header>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
@@ -49,7 +47,7 @@
         searchSubmit = function () {
             var searchInput = document.getElementById("searchInput").value;
             if (searchInput != "") {
-                window.location.href = '@Url.Action("ProductSummary", "Product")?Subcategory=' + searchInput;
+                window.location.href = '@Url.Action("SearchSubmit", "Search")/' + searchInput;
             }
         }
     });

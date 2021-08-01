@@ -13,9 +13,10 @@ namespace Joole.Service
     {
         public static readonly JooleDbEntities context = new JooleDbEntities();
         UnitOfWork UOW = new UnitOfWork(context);
+        private Repository<User> userRepository;
         public Service()
         {
-
+            userRepository = new Repository<User>(context);
         }
         public ProductDetailsModel GetProductDetails(int ID)
         {
@@ -135,6 +136,8 @@ namespace Joole.Service
             }
             return false;
         }
+        public void CreateUser(User u)
+        {
 
         public List<ProductModel> GetProducts(string Subcategory, int beginningYear, int endingYear)
         {
@@ -230,44 +233,6 @@ namespace Joole.Service
             return Products;
         }
 
-        /*List<ProductModel> NewProducts = new List<ProductModel>();
-            var result = UOW.product.GetAll();
-
-            foreach (var item in result)
-            {
-                ProductModel pr = new ProductModel();
-                pr.Product_ID = item.Product_ID;
-                var propertyValue = UOW.propertyvalue.GetAll();
-                pr.Manufacturer = item.Product_ID.ToString(); //get manufacturer from table
-                foreach (var prop in propertyValue)
-                {
-                    if (prop.Property_ID == 6)
-                    {
-                        pr.AirFlow = prop.Value;
-                    }
-                    if (prop.Property_ID == 8)
-                    {
-                        pr.PowerMax = prop.Value; //8
-                    }
-                    if (prop.Property_ID == 14)
-                    {
-                        pr.SoundAtMaxSpeed = prop.Value; //14
-                    }
-                    if (prop.Property_ID == 15)
-                    {
-                        pr.FanSweepDiameter = prop.Value; //15
-                    }
-                }
-                pr.Series = item.Series;
-                pr.Model = item.Model;
-                //pr.UseType = item.UseType;
-                NewProducts.Add(pr);
-            }
-            return NewProducts;
-        }
-
-    }*/
-
         public List<SearchModel> GetCategoryListAll()
         {
             List<SearchModel> categories = new List<SearchModel>();
@@ -312,7 +277,6 @@ namespace Joole.Service
                         sm.SubCategoryName = item.SubCategoryName;
                         subcategories.Add(sm);
                     }
-
                 }
             }
             else
