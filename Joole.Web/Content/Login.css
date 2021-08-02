@@ -14,10 +14,11 @@
     width: 25%;
 }
 
-#SubmitButton {
+.SubmitButton {
     color: white;
     background-color: dodgerblue;
     margin-left: 90%;
+    border-radius: 5px;
 }
 
 #signinlabel {

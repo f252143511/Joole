@@ -14,8 +14,14 @@
     <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap-responsive.min.css")">
     <script src="@Url.Content("~/Scripts/jquery-3.4.1.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/bootstrap.min.js")" type="text/javascript"></script>
-
-    <title>Login - Joole</title>
+    <script>
+        var name = '@ViewData["Username"]';
+        $(document).ready(function () {
+            if (name != null && name != "") {
+                $('#popupform').modal('show');
+            }
+        });
+    </script>
 </head>
     <body>
         <a class="btn" data-toggle="modal" data-target="#popupform" style="color: black; margin-left: 90%;">Sign Up</a>
@@ -36,7 +42,7 @@
             <div class="center">
                 <input type="text" placeholder="Username or Email" class="textbox" name="Useremail" value=@Model.Username required /><br />
                 <input type="password" placeholder="password" class="textbox" name="Password" value=@Model.Password required /><br />
-                <input type="submit" value="Log In" id="SubmitButton" />
+                <input type="submit" value="Log In" class="SubmitButton" />
                 <label id="errorlbl">@Html.ValidationMessageFor(x => x.Password, @ViewData["AuthError"].ToString(), new { @class = "text-danger" })</label>
             </div>
         }
