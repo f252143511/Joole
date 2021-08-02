@@ -107,7 +107,6 @@ namespace Joole.Service
         {
             List<UserModel> NewUsers = new List<UserModel>();
             var result = UOW.user.GetAll();
-
             foreach (var item in result)
             {
                 UserModel us = new UserModel();
@@ -138,6 +137,11 @@ namespace Joole.Service
         }
         public void CreateUser(User u)
         {
+            var users = UOW.user.GetAll();
+            var query = users.OrderBy(user => user.User_ID);
+            var result = query.Last().User_ID;
+            var UserId = result+1;
+            u.User_ID = UserId;
             userRepository.Insert(u);
         }
 
