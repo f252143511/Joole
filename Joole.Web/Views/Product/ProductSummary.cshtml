@@ -101,16 +101,18 @@
                             <a href="~/ProductDetails/Index?id=@Html.DisplayFor(modelItem => item.Product_ID)">
                                 <img class="Product.Product_Image" src="@Html.DisplayFor(modelItem => item.Image)" height="150" />
                             </a>
-                            <p class="Manufacturer.Name"><b>@Html.DisplayFor(modelItem => item.Manufacturer)</b></p>
-                            <p class="Product.Series"><b>@Html.DisplayFor(modelItem => item.Series)</b></p>
-                            <p class="Product.Model"><b>@Html.DisplayFor(modelItem => item.Model)</b></p>
+                            <p class="bold"><b>@Html.DisplayFor(modelItem => item.Manufacturer)</b></p>
+                            <p class="bold"><b>@Html.DisplayFor(modelItem => item.Series)</b></p>
+                            <p class="bold"><b>@Html.DisplayFor(modelItem => item.Model)</b></p>
                             <p class="airflow">@Html.DisplayFor(modelItem => item.AirFlow) CFM</p>
                             <p class="max-power">@Html.DisplayFor(modelItem => item.PowerMax) W at max speed</p>
                             <p class="max-sound">@Html.DisplayFor(modelItem => item.SoundAtMaxSpeed) dBA at max speed</p>
                             <p class="sweep-diameter">@Html.DisplayFor(modelItem => item.FanSweepDiameter)" fan sweep diameter</p>
                             <div>
-                                <input class="checkbox" id="@Html.DisplayFor(modelItem => item.Product_ID)" type="checkbox" value="Compare" />
-                                <label><b>Compare</b></label>
+                                <span>
+                                    <input class="checkbox" id="@Html.DisplayFor(modelItem => item.Product_ID)" type="checkbox" value="Compare" />
+                                    <label><b>Compare</b></label>
+                                </span>
                                 <button onclick="compare()" class="btn-add">Add to</button>
                             </div>
                         </div>
