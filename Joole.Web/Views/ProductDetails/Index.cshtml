@@ -3,14 +3,20 @@
 @{
     ViewBag.Title = "Index";
 }
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
 <style>
     .splittable {
         float: left;
         width: 50%;
     }
+
     table tr th {
         background-color: #ddd;
     }
+
     .left table tr th {
         width: 50%;
     }
