@@ -7,7 +7,9 @@
 
 <header class="searchbar">
     <div class="mySearch">
-        <img src="@Url.Content("~/Images/joolelogo.png")">
+        <a href="~/Search/Index">
+            <img src="@Url.Content("~/Images/joolelogo.png")">
+        </a>
         <select id="Category_ID">
             <option value="-1" disabled selected hidden>Category</option>
             @foreach (var item in ViewBag.CategoryList)
