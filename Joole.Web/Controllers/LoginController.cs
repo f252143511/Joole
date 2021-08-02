@@ -36,7 +36,7 @@ namespace Login.Controllers
                 return View("Login", obj);
             }
         }
-        public ActionResult Register()
+        public PartialViewResult Register()
         {
             return PartialView("_Register");
         }
@@ -47,6 +47,7 @@ namespace Login.Controllers
             if (Request.Form["password"] != Request.Form["password2"])
             {
                 ViewData["Image"] = Request.Form["picture"];
+                var i = ViewData["Image"];
                 ViewData["Username"] = Request.Form["user"];
                 ViewData["Email"] = Request.Form["email"];
                 ModelState.AddModelError("password2", "Please confirm password.");
