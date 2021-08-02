@@ -34,7 +34,25 @@
     margin-left: 30%;
 }
 
-.registerBox{
-    margin-right: 30%;
+.registerBox {
+    float: right;
 }
 
+#username {
+    position: relative;
+    right: 43%;
+}
+
+#email {
+    position: relative;
+    right: 16.2%;
+}
+
+#password {
+    position: relative;
+    left: 10.5%;
+}
+
+#password2 {
+    margin-right: 43%
+}
