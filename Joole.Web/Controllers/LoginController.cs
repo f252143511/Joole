@@ -46,6 +46,7 @@ namespace Login.Controllers
             ViewData["AuthError"] = "";
             if (Request.Form["password"] != Request.Form["password2"])
             {
+                ViewData["Image"] = Request.Form["picture"];
                 ViewData["Username"] = Request.Form["user"];
                 ViewData["Email"] = Request.Form["email"];
                 ModelState.AddModelError("password2", "Please confirm password.");
