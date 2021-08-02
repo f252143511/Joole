@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <header class="searchbar">
-    <div id="search">
+    <div class="mySearch">
         <img src="@Url.Content("~/Images/joolelogo.png")">
         <select id="Category_ID">
             <option value="-1" disabled selected hidden>Category</option>
@@ -47,7 +47,7 @@
         searchSubmit = function () {
             var searchInput = document.getElementById("searchInput").value;
             if (searchInput != "") {
-                window.location.href = '@Url.Action("SearchSubmit", "Search")/' + searchInput;
+                window.location.href = '@Url.Action("ProductSummary", "Product")?Subcategory=' + searchInput;
             }
         }
     });

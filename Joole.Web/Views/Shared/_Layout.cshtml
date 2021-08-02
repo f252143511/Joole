@@ -10,6 +10,56 @@
 <body>
     
     <div class="container body-content">
+        <link rel="stylesheet" href="~/Content/Search.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <img src="@Url.Content("~/Images/joolelogo.png")">
+        <h2 id="title">Building Product Selection Platform</h2>
+        <div id="search">
+            <select id="Category_ID">
+                <option value="-1" disabled selected hidden>Category</option>
+                @foreach (var item in ViewBag.CategoryList)
+                {
+                    <option value="@item.Value">@item.Text</option>
+                }
+            </select>
+            <input type="search" id="searchInput" list="dl" placeholder="Search" autocomplete="off" />
+            <datalist id="dl">
+                @foreach (var item in ViewBag.SubCategoryList)
+                {
+                    <option>@item.Text</option>
+                }
+            </datalist>
+            <button class="btn" onclick="searchSubmit()"><i class="fa fa-search"></i></button>
+        </div>
+
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+    var searchSubmit;
+    $(document).ready(function () {
+        $("#Category_ID").change(function () {
+            var category_id = $(this).val();
+            if (category_id == "") category_id = -1;
+            $.ajax({
+                type: "POST",
+                url: "/Search/ChangeCategory?Category_ID=" + category_id,
+                contentType: "html",
+                success: function (response) {
+                    $("#dl").empty();
+                    $("#dl").append(response);
+                }
+            });
+        });
+
+        searchSubmit = function () {
+            var searchInput = document.getElementById("searchInput").value;
+            if (searchInput != "") {
+                window.location.href = '@Url.Action("ProductSummary", "Product")?Subcategory=' + searchInput;
+            }
+        }
+    });
+        </script>
         @RenderBody()
     </div>
 

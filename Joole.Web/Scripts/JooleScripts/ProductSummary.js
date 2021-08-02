@@ -1,9 +1,9 @@
 ﻿$(function () {
     $("#airflow-slider").slider({
         range: true,
-        min: 10,
-        max: 90,
-        values: [10, 90],
+        min: 1000,
+        max: 9000,
+        values: [1000, 9000],
         slide: function (event, ui) {
             $("#airflow-min-amount").val(ui.values[0]);
             $("#airflow-max-amount").val(ui.values[1]);

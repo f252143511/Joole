@@ -3,9 +3,8 @@
 
 
 @{
-    Layout = null;
-    ViewBag.Title = "ProductSummary";
-    if(ViewData["beginningYear"].ToString() =="0")
+    Layout = "~/Views/Shared/_Searchbar.cshtml";
+    if (ViewData["beginningYear"].ToString() == "0")
     {
         ViewData["beginningYear"] = "";
     }
@@ -30,7 +29,7 @@
 <body>
 
     <div>
-        @Html.Partial("_Searchbar")
+        @*@Html.Partial("_Searchbar")*@
         <div class="container">
             <div class="filter-display">
                 <form>
@@ -41,13 +40,13 @@
                             <a href="~/Product/ProductSummary?Subcategory=@Html.DisplayFor(model => model.First().SubCategory)" class="search-btn" id="clear">Clear</a>
                         </span>
                     </div>
-                    <input type="hidden" name="Subcategory" value="@Html.DisplayFor(model => model.First().SubCategory)"/>
+                    <input type="hidden" name="Subcategory" value="@Html.DisplayFor(model => model.First().SubCategory)" />
                     <div id="productType">
                         Product Type ▲ ▼
                     </div>
                     <div id="modelYear">
                         Model Year:
-                        <input type="text" name="beginningYear" id="beginningYear" maxlength="4" size="2" value="@ViewData["beginningYear"]"> - 
+                        <input type="text" name="beginningYear" id="beginningYear" maxlength="4" size="2" value="@ViewData["beginningYear"]"> -
                         <input type="text" name="endingYear" id="endingYear" maxlength="4" size="2" value="@ViewData["endingYear"]">
                     </div>
                     <div id="technicalSpecifications">
@@ -94,30 +93,30 @@
                     <p><b id="Category">@Html.DisplayFor(model => model.First().Category) > </b> <span id="SubCategory">@Html.DisplayFor(model => model.First().SubCategory)</span></p>
                 </div>
                 <div id="products-display">
-                    
+
                     @foreach (var item in Model)
                     {
-                        
-                    <div class="product">
-                        <a href="~/ProductDetails/Index?id=@Html.DisplayFor(modelItem => item.Product_ID)">
-                            <img class="Product.Product_Image" src="@Html.DisplayFor(modelItem => item.Image)" height="150"/>
-                        </a>
-                        <p class="Manufacturer.Name"><b>@Html.DisplayFor(modelItem => item.Manufacturer)</b></p>
-                        <p class="Product.Series"><b>@Html.DisplayFor(modelItem => item.Series)</b></p>
-                        <p class="Product.Model"><b>@Html.DisplayFor(modelItem => item.Model)</b></p>
-                        <p class="airflow">@Html.DisplayFor(modelItem => item.AirFlow) CFM</p>
-                        <p class="max-power">@Html.DisplayFor(modelItem => item.PowerMax) W at max speed</p>
-                        <p class="max-sound">@Html.DisplayFor(modelItem => item.SoundAtMaxSpeed) dBA at max speed</p>
-                        <p class="sweep-diameter">@Html.DisplayFor(modelItem => item.FanSweepDiameter)" fan sweep diameter</p>
-                        <div>
-                            <input class="checkbox" id="@Html.DisplayFor(modelItem => item.Product_ID)" type="checkbox" value="Compare" />
-                            <label><b>Compare</b></label>
-                            <button onclick="compare()" class="btn-add">Add to</button>
+
+                        <div class="product">
+                            <a href="~/ProductDetails/Index?id=@Html.DisplayFor(modelItem => item.Product_ID)">
+                                <img class="Product.Product_Image" src="@Html.DisplayFor(modelItem => item.Image)" height="150" />
+                            </a>
+                            <p class="Manufacturer.Name"><b>@Html.DisplayFor(modelItem => item.Manufacturer)</b></p>
+                            <p class="Product.Series"><b>@Html.DisplayFor(modelItem => item.Series)</b></p>
+                            <p class="Product.Model"><b>@Html.DisplayFor(modelItem => item.Model)</b></p>
+                            <p class="airflow">@Html.DisplayFor(modelItem => item.AirFlow) CFM</p>
+                            <p class="max-power">@Html.DisplayFor(modelItem => item.PowerMax) W at max speed</p>
+                            <p class="max-sound">@Html.DisplayFor(modelItem => item.SoundAtMaxSpeed) dBA at max speed</p>
+                            <p class="sweep-diameter">@Html.DisplayFor(modelItem => item.FanSweepDiameter)" fan sweep diameter</p>
+                            <div>
+                                <input class="checkbox" id="@Html.DisplayFor(modelItem => item.Product_ID)" type="checkbox" value="Compare" />
+                                <label><b>Compare</b></label>
+                                <button onclick="compare()" class="btn-add">Add to</button>
+                            </div>
                         </div>
-                    </div>
-                        
+
                     }
-                   
+
                 </div>
             </div>
         </div>
