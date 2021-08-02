@@ -141,7 +141,8 @@ namespace Joole.Service
             userRepository.Insert(u);
         }
 
-        public List<ProductModel> GetProducts(string Subcategory, int beginningYear, int endingYear)
+        public List<ProductModel> GetProducts(string Subcategory, int beginningYear, int endingYear, 
+            int airflowMinAmount, int airflowMaxAmount)
         {
             var products = UOW.product.GetAll();
             var properties = UOW.property.GetAll();
@@ -159,10 +160,13 @@ namespace Joole.Service
                          where subcategory.SubCategoryName == Subcategory 
                          select new { product.Product_ID, product.Product_Image, subcategory.SubCategoryName, category.Category_Name, product.Model, product.Series, propertyvalue.Value, manufacturer.Name, property.Property_Name };
 
-            
-            var filterQuery = query.Where(product => product.Property_Name == "Model Year" 
+
+            var filterQuery = query.Where(product => product.Property_Name == "Model Year"
                                 && int.Parse(product.Value) >= beginningYear
                                 && int.Parse(product.Value) <= endingYear);
+            /*filterQuery.Concat(query.Where(product => product.Property_Name == "Air Flow"
+                                && int.Parse(product.Value) <= airflowMinAmount
+                                && int.Parse(product.Value) >= airflowMaxAmount));*/
 
             var uniqueQuery = from p in filterQuery
                               group p by new { p.Product_ID }

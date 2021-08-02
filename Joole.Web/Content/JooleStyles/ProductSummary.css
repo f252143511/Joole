@@ -1,5 +1,6 @@
 ﻿body {
     margin: 0;
+    font-family: sans-serif;
 }
 .container{
     display: flex;
@@ -26,6 +27,9 @@
     color: white;
     border: none;
     padding: 5px 10px;
+    text-decoration: none;
+    font-size: medium;
+    cursor: default;
 }
 
 
