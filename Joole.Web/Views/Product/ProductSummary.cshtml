@@ -4,7 +4,8 @@
 
 @{
     Layout = "~/Views/Shared/_Searchbar.cshtml";
-    if (ViewData["beginningYear"].ToString() == "0")
+    ViewBag.Title = "ProductSummary";
+    if(ViewData["beginningYear"].ToString() =="0")
     {
         ViewData["beginningYear"] = "";
     }
@@ -29,7 +30,6 @@
 <body>
 
     <div>
-        @*@Html.Partial("_Searchbar")*@
         <div class="container">
             <div class="filter-display">
                 <form>
