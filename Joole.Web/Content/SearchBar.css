@@ -9,6 +9,11 @@
     text-align: center;
 }
 
+.mySearch{
+    display: flex;
+    align-items: center;
+}
+
 .mySearch img {
     padding-top: 0;
     height: 70px;

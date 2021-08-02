@@ -5,100 +5,103 @@
     Layout = "~/Views/Shared/_Searchbar.cshtml";
     ViewBag.Title = "ProductsCompare";
 }
-
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
 <title>Compare Products - Joole</title>
 <div class="container">
     <table class="table table-bordered table-image table-md">
         @foreach (var item in Model)
         {
 
-        <thead>
-            <tr>
-                <td class="w-25">
-                </td>
-                <td class="w-25">
-                    <img src="joole.jpg" class="img-fluid img-thumbnail">
-                </td>
-                <td class="w-25">
-                    <img src="joole.jpg" class="img-fluid img-thumbnail">
-                </td>
-                <td class="w-25">
-                    <img src="joole.jpg" class="img-fluid img-thumbnail">
-                </td>
-            </tr>
-        </thead>
-        <thead class="thead-light">
-            <tr>
-                <th scope="col" colspan="4">DESCRIPTION</th>
-            </tr>
-        </thead>
-        <tbody>
-        <thead class="thead-light">
-            <tr>
-                <th scope="row">dbo1</th>
-                <td>dbo</td>
-                <td>dbo</td>
-                <td>dbo</td>
-            </tr>
-            <tr>
-                <th scope="row">Series</th>
-                <td>@Html.DisplayFor(modelItem => item.Series)</td>
-                <td>dbo</td>
-                <td>dbo</td>
-            </tr>
-            <tr>
-                <th scope="row">Model</th>
-                <td>@Html.DisplayFor(modelItem => item.Model)</td>
-                <td>dbo</td>
-                <td>dbo</td>
-            </tr>
-        <thead class="thead-light">
-            <tr>
-                <th scope="col" colspan="4">TYPE</th>
-            </tr>
-            <tr>
-                <th scope="row">dbo4</th>
-                <td>dbo</td>
-                <td>dbo</td>
-                <td>dbo</td>
-            </tr>
-            <tr>
-                <th scope="row">dbo5</th>
-                <td>dbo</td>
-                <td>dbo</td>
-                <td>dbo</td>
-            </tr>
-            <tr>
-                <th scope="row">dbo6</th>
-                <td>dbo</td>
-                <td>dbo</td>
-                <td>dbo</td>
-            </tr>
-            <tr>
-                <th scope="row">dbo7</th>
-                <td>dbo</td>
-                <td>dbo</td>
-                <td>dbo</td>
-            </tr>
-            <tr>
-                <th scope="row">dbo8</th>
-                <td>dbo</td>
-                <td>dbo</td>
-                <td>dbo</td>
-            </tr>
-            <tr>
-                <th scope="row">dbo9</th>
-                <td>dbo</td>
-                <td>dbo</td>
-                <td>dbo</td>
-            </tr>
-        <thead class="thead-light">
-            <tr>
-                <th scope="col" colspan="4">TECHNICAL SPECIFACTIONS</th>
-            </tr>
-            </tbody>
-        }
-    </table>
+            <thead>
+                <tr>
+                    <td class="w-25">
+                    </td>
+                    <td class="w-25">
+                        <img src="joole.jpg" class="img-fluid img-thumbnail">
+                    </td>
+                    <td class="w-25">
+                        <img src="joole.jpg" class="img-fluid img-thumbnail">
+                    </td>
+                    <td class="w-25">
+                        <img src="joole.jpg" class="img-fluid img-thumbnail">
+                    </td>
+                </tr>
+            </thead>
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col" colspan="4">DESCRIPTION</th>
+                </tr>
+            </thead>
+            <tbody>
+            <thead class="thead-light">
+                <tr>
+                    <th scope="row">dbo1</th>
+                    <td>dbo</td>
+                    <td>dbo</td>
+                    <td>dbo</td>
+                </tr>
+                <tr>
+                    <th scope="row">Series</th>
+                    <td>@Html.DisplayFor(modelItem => item.Series)</td>
+                    <td>dbo</td>
+                    <td>dbo</td>
+                </tr>
+                <tr>
+                    <th scope="row">Model</th>
+                    <td>@Html.DisplayFor(modelItem => item.Model)</td>
+                    <td>dbo</td>
+                    <td>dbo</td>
+                </tr>
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col" colspan="4">TYPE</th>
+                </tr>
+                <tr>
+                    <th scope="row">dbo4</th>
+                    <td>dbo</td>
+                    <td>dbo</td>
+                    <td>dbo</td>
+                </tr>
+                <tr>
+                    <th scope="row">dbo5</th>
+                    <td>dbo</td>
+                    <td>dbo</td>
+                    <td>dbo</td>
+                </tr>
+                <tr>
+                    <th scope="row">dbo6</th>
+                    <td>dbo</td>
+                    <td>dbo</td>
+                    <td>dbo</td>
+                </tr>
+                <tr>
+                    <th scope="row">dbo7</th>
+                    <td>dbo</td>
+                    <td>dbo</td>
+                    <td>dbo</td>
+                </tr>
+                <tr>
+                    <th scope="row">dbo8</th>
+                    <td>dbo</td>
+                    <td>dbo</td>
+                    <td>dbo</td>
+                </tr>
+                <tr>
+                    <th scope="row">dbo9</th>
+                    <td>dbo</td>
+                    <td>dbo</td>
+                    <td>dbo</td>
+                </tr>
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col" colspan="4">TECHNICAL SPECIFACTIONS</th>
+                </tr>
+                </tbody>
+            }
+</table>
 </div>
 
 
