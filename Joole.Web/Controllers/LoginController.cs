@@ -42,11 +42,12 @@ namespace Login.Controllers
         }
         public ActionResult Registration()
         {
-            if(Request.Form["password"] != Request.Form["password2"])
+
+            ViewData["AuthError"] = "";
+            if (Request.Form["password"] != Request.Form["password2"])
             {
                 ViewData["Username"] = Request.Form["user"];
                 ViewData["Email"] = Request.Form["email"];
-                ViewData["AuthError"] = "";
                 ModelState.AddModelError("password2", "Please confirm password.");
                 return View("Login", new User());
             }
