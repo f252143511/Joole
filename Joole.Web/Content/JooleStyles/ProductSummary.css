@@ -1,5 +1,6 @@
 ﻿body {
     margin: 0;
+    font-family: sans-serif;
 }
 .container{
     display: flex;
@@ -26,6 +27,9 @@
     color: white;
     border: none;
     padding: 5px 10px;
+    text-decoration: none;
+    font-size: medium;
+    cursor: default;
 }
 
 
@@ -86,23 +90,3 @@
     padding: 5px 10px;
     border-radius: 5px;
 }
-
-.searchbar {
-    background: linear-gradient(180deg, rgb(39,113,161) 0%, rgba(255,255,255,1) 100%);
-    width: 99vw;
-    height: 70px;
-    text-align: center;
-}
-.searchbar img {
-    height: 100%;
-    float: left
-}
-    .searchbar div {
-        display: inline;
-        width: 400px;
-        margin-left: 20px
-    }
-    .searchbar form {
-        color: black;
-        font: bold;
-    }

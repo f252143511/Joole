@@ -1,9 +1,9 @@
 ﻿$(function () {
     $("#airflow-slider").slider({
         range: true,
-        min: 10,
-        max: 90,
-        values: [10, 90],
+        min: 1000,
+        max: 9000,
+        values: [1000, 9000],
         slide: function (event, ui) {
             $("#airflow-min-amount").val(ui.values[0]);
             $("#airflow-max-amount").val(ui.values[1]);
@@ -55,9 +55,6 @@ $(function () {
     $("#sweep-max-amount").val($("#sweep-slider").slider("values", 1));
 });
 
-
-var viewdetails;
-var compare;
 $(document).ready(function () {
     var numchecked = 0;
     $('input[type="checkbox"]').click(function () {
@@ -73,30 +70,4 @@ $(document).ready(function () {
             numchecked--;
         }
     });
-    viewdetails = function(id) {
-        $.ajax({
-            url: '@Url.Action("ProductDetails", "Index")',
-            dataType: 'html',
-            method: 'POST',
-            data: { "id": id },
-            success: function (res) {
-                console.log("success");
-            },
-            error: function (err) {
-                console.log(err);
-            }
-        })
-    }
-    compare = function () {
-        var list_id = [];
-        $("input[type='checkbox']:checked").each(function () {
-            list_id.push($(this).attr("id"));
-        });
-        var param = "";
-        for (var i = 0; i < list_id.length; i++) {
-            param += "id" + (i+1) + "=" + list_id[i] + "&";
-        }
-        window.location.replace('~/Product/ProductsCompare?'+ param);
-        
-    }
 });

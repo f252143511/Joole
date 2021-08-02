@@ -12,11 +12,14 @@ namespace Joole.Web.Controllers
     public class ProductController : Controller
     {
         [HttpGet]
-        public ActionResult ProductSummary(string subcategory)
+        public ActionResult ProductSummary(string subcategory, int beginningYear = 0, int endingYear= 2050, 
+            int airflowMinAmount = 1000, int airflowMaxAmount= 9000)
         {
             Service.Service sv = new Service.Service();
-            var model = sv.GetProducts(subcategory).ToList();
-
+            var model = sv.GetProducts(subcategory, beginningYear, endingYear, 
+                airflowMinAmount, airflowMaxAmount).ToList();
+            ViewData["beginningYear"] = beginningYear;
+            ViewData["endingYear"] = endingYear;
             return View(model);
         }
         [HttpGet]

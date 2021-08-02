@@ -138,10 +138,11 @@ namespace Joole.Service
         }
         public void CreateUser(User u)
         {
-
             userRepository.Insert(u);
         }
-        public List<ProductModel> GetProducts(string Subcategory)
+
+        public List<ProductModel> GetProducts(string Subcategory, int beginningYear, int endingYear, 
+            int airflowMinAmount, int airflowMaxAmount)
         {
             var products = UOW.product.GetAll();
             var properties = UOW.property.GetAll();
@@ -150,109 +151,76 @@ namespace Joole.Service
             var categories = UOW.category.GetAll();
             var subcategories = UOW.subcategory.GetAll();
 
-            var query = (from product in products
+            var query =  from product in products
                          join subcategory in subcategories on product.Subcategory_ID equals subcategory.SubCategory_ID
                          join category in categories on subcategory.Category_ID equals category.Category_ID
                          join manufacturer in manufacturers on product.Manufacturer_ID equals manufacturer.Manufacturer_ID
                          join propertyvalue in propertyValues on product.Product_ID equals propertyvalue.Product_ID
                          join property in properties on propertyvalue.Property_ID equals property.Property_ID
-                         where subcategory.SubCategoryName == Subcategory
-                         select new { product.Product_ID, product.Product_Image, subcategory.SubCategoryName, category.Category_Name, product.Model, product.Series, propertyvalue.Value, manufacturer.Name, property.Property_Name });
-            
-            var uniqueQuery = from p in query
-                               group p by new { p.Product_ID }
+                         where subcategory.SubCategoryName == Subcategory 
+                         select new { product.Product_ID, product.Product_Image, subcategory.SubCategoryName, category.Category_Name, product.Model, product.Series, propertyvalue.Value, manufacturer.Name, property.Property_Name };
+
+
+            var filterQuery = query.Where(product => product.Property_Name == "Model Year"
+                                && int.Parse(product.Value) >= beginningYear
+                                && int.Parse(product.Value) <= endingYear);
+            /*filterQuery.Concat(query.Where(product => product.Property_Name == "Air Flow"
+                                && int.Parse(product.Value) <= airflowMinAmount
+                                && int.Parse(product.Value) >= airflowMaxAmount));*/
+
+            var uniqueQuery = from p in filterQuery
+                              group p by new { p.Product_ID }
                                into mygroup
                                select mygroup.FirstOrDefault();
 
-            List<ProductModel> result = new List<ProductModel>();
-
-            foreach (var property in uniqueQuery)
+            List < ProductModel > result = new List<ProductModel>();
+            if (uniqueQuery.Count() == 0)
             {
                 ProductModel pr = new ProductModel();
-                pr.Image = property.Product_Image;
-                pr.Category = uniqueQuery.First().Category_Name;
-                pr.SubCategory = uniqueQuery.First().SubCategoryName;
-                pr.Product_ID = property.Product_ID;
-                pr.Series = property.Series;
-                pr.Manufacturer = property.Name;
-                pr.Model = property.Model;
-               /* foreach (var prop in propertyValues)
-                {
-                    if (prop.Property_ID == 6)
-                    {
-                        pr.AirFlow = prop.Value;
-                    }
-                    if (prop.Property_ID == 8)
-                    {
-                        pr.PowerMax = prop.Value; //8
-                    }
-                    if (prop.Property_ID == 14)
-                    {
-                        pr.SoundAtMaxSpeed = prop.Value; //14
-                    }
-                    if (prop.Property_ID == 15)
-                    {
-                        pr.FanSweepDiameter = prop.Value; //15
-                    }
-                }*/
-                /*switch (property.Property_Name)
-                {
-                    case "Use Type":
-                        pr.UseType = property.Value;
-                        break;
-                    case "Application":
-                        pr.Application = property.Value;
-                        break;
-                    case "Mounting Location":
-                        pr.MountingLocation = property.Value;
-                        break;
-                    case "Accessories":
-                        pr.Accessories = property.Value;
-                        break;
-                    case "Air Flow":
-                        pr.AirFlow = property.Value;
-                        break;
-                    case "Model Year":
-                        pr.ModelYear = property.Value;
-                        break;
-                    case "Power_Min":
-                        pr.PowerMin = property.Value;
-                        break;
-                    case "Power_Max":
-                        pr.PowerMax = property.Value;
-                        break;
-                    case "Operating Voltage_Min":
-                        pr.OperatingVoltageMin = property.Value;
-                        break;
-                    case "Operating Voltage_Max":
-                        pr.OperatingVoltageMax = property.Value;
-                        break;
-                    case "Fan speed_Min":
-                        pr.FanSpeedMin = property.Value;
-                        break;
-                    case "Fan speed_Max":
-                        pr.FanSpeedMax = property.Value;
-                        break;
-                    case "Number of fan speeds":
-                        pr.NumberOfFanSpeed = property.Value;
-                        break;
-                    case "Sound at max speed":
-                        pr.SoundAtMaxSpeed = property.Value;
-                        break;
-                    case "Fan sweep diameter":
-                        pr.FanSweepDiameter = property.Value;
-                        break;
-                    case "Height_Min":
-                        pr.HeightMin = property.Value;
-                        break;
-                    case "Height_Max":
-                        pr.HeightMax = property.Value;
-                        break;
-                    case "Weight":
-                        pr.Weight = property.Value;
-                        break;
-                }*/
+
+                pr.Category = "Mechanical";
+                pr.SubCategory = Subcategory;
                 result.Add(pr);
+            }
+            else
+            {
+                foreach (var property in uniqueQuery)
+                {
+                    ProductModel pr = new ProductModel();
+                    pr.Image = property.Product_Image;
+                    pr.Category = uniqueQuery.First().Category_Name;
+                    pr.SubCategory = uniqueQuery.First().SubCategoryName;
+                    pr.Product_ID = property.Product_ID;
+                    pr.Series = property.Series;
+                    pr.Manufacturer = property.Name;
+                    pr.Model = property.Model;
+                    foreach (var prop in query)
+                    {
+                        if (prop.Product_ID == property.Product_ID)
+                        {
+                            switch (prop.Property_Name)
+                            {
+                                case "Model Year":
+                                        pr.ModelYear = prop.Value;
+                                    break;
+                                case "Air Flow":
+                                    pr.AirFlow = prop.Value;
+                                    break;
+                                case "Power_Max":
+                                    pr.PowerMax = prop.Value;
+                                    break;
+                                case "Sound at max speed":
+                                    pr.SoundAtMaxSpeed = prop.Value;
+                                    break;
+                                case "Fan sweep diameter":
+                                    pr.FanSweepDiameter = prop.Value;
+                                    break;
+                            }
+                        }
+
+                    }
+                    result.Add(pr);
+                }       
             }
             return result;
         }
@@ -270,44 +238,6 @@ namespace Joole.Service
             }
             return Products;
         }
-
-        /*List<ProductModel> NewProducts = new List<ProductModel>();
-            var result = UOW.product.GetAll();
-
-            foreach (var item in result)
-            {
-                ProductModel pr = new ProductModel();
-                pr.Product_ID = item.Product_ID;
-                var propertyValue = UOW.propertyvalue.GetAll();
-                pr.Manufacturer = item.Product_ID.ToString(); //get manufacturer from table
-                foreach (var prop in propertyValue)
-                {
-                    if (prop.Property_ID == 6)
-                    {
-                        pr.AirFlow = prop.Value;
-                    }
-                    if (prop.Property_ID == 8)
-                    {
-                        pr.PowerMax = prop.Value; //8
-                    }
-                    if (prop.Property_ID == 14)
-                    {
-                        pr.SoundAtMaxSpeed = prop.Value; //14
-                    }
-                    if (prop.Property_ID == 15)
-                    {
-                        pr.FanSweepDiameter = prop.Value; //15
-                    }
-                }
-                pr.Series = item.Series;
-                pr.Model = item.Model;
-                //pr.UseType = item.UseType;
-                NewProducts.Add(pr);
-            }
-            return NewProducts;
-        }
-
-    }*/
 
         public List<SearchModel> GetCategoryListAll()
         {
@@ -353,7 +283,6 @@ namespace Joole.Service
                         sm.SubCategoryName = item.SubCategoryName;
                         subcategories.Add(sm);
                     }
-
                 }
             }
             else

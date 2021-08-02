@@ -1,8 +1,8 @@
 @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
+		.bd-placeholder-img-lg {
+		  font-size: 3.5rem;
+		}
+	  }
 
 .navbar {
 	background-image: linear-gradient(#2471A3, #EBF5FB) !important;

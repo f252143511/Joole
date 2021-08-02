@@ -130,6 +130,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NavbarController.cs" />
     <Compile Include="Controllers\ProductDetailsController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -182,6 +183,7 @@
     <Content Include="Content\JooleStyles\ProductSummary.css" />
     <Content Include="Content\Login.css" />
     <Content Include="Content\Navbar.css" />
+    <Content Include="Content\SearchBar.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -227,6 +229,7 @@
     <Content Include="Views\Shared\_Searchbar.cshtml" />
     <Content Include="Views\Shared\SubCategoryOptionsPartial.cshtml" />
     <Content Include="Views\Login\_Register.cshtml" />
+    <Content Include="Views\Navbar\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
