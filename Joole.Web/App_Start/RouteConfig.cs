@@ -18,6 +18,11 @@ namespace Joole.Web
                 defaults: new { controller = "Login", action = "Login", id = UrlParameter.Optional }
             );
             routes.MapRoute(
+                name: "Registration",
+                url: "Registration",
+                defaults: new { controller = "Login", action = "Registration", id = UrlParameter.Optional }
+            );
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

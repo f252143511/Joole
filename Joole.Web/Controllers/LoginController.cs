@@ -14,20 +14,42 @@ namespace Login.Controllers
         // GET: Login
         public ActionResult Login()
         {
+            ViewData["AuthError"] = "";
+            return View(new User());
+            
+        }
+        public ActionResult Submit(User obj)
+        {
             Service sv = new Service();
             String useremail = Request.Form["Useremail"];
             String password = Request.Form["Password"];
-            if (sv.validateUser(useremail,password))
+            obj.Username = useremail;
+            obj.Password = password;
+            if (sv.ValidateUser(useremail, password))
             {
                 return RedirectToAction("Index", "Search");
             }
             else
             {
-                return View();
+                // ModelState.AddModelError("Useremail", "Incorrect Credentials");
+                ViewData["AuthError"] = "Invalid credentials!";
+                return View("Login", obj);
             }
+        }
+        public ActionResult Register()
+        {
+            return PartialView("_Register");
         }
         public ActionResult Registration()
         {
+            if(Request.Form["password"] != Request.Form["password2"])
+            {
+                ViewData["Username"] = Request.Form["user"];
+                ViewData["Email"] = Request.Form["email"];
+                ViewData["AuthError"] = "";
+                ModelState.AddModelError("password2", "Please confirm password.");
+                return View("Login", new User());
+            }
             Service sv = new Service();
             string username = Request.Form["user"];
             string password = Request.Form["password"];
@@ -35,7 +57,8 @@ namespace Login.Controllers
             string image = Request.Form["picture"];
             User u = new User(username, password, email, image);
             sv.CreateUser(u);
-            return View("Login");
+            
+            return View("Login", new User());
         }
     }
 }

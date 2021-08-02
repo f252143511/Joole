@@ -1,8 +1,8 @@
+
+﻿@model Joole.Dal.User
 ﻿@{
-    Layout = null;
     ViewBag.Title = "Login";
 }
-
 <head>
     <link rel="stylesheet" href="~/Content/login.css" type="text/css">
     <link rel="stylesheet" href="@Url.Content("~/Content/Styles/bootstrap.min.css")">
@@ -14,40 +14,29 @@
     </script>
 </head>
 <body>
-    <a type="button" class="btn" href="#popupform" data-toggle="modal" style="color: black; margin-left: 90%;">Sign Up</a>
+    <a class="btn" data-toggle="modal" data-target="#popupform" style="color: black; margin-left: 90%;">Sign Up</a>
     <div id="popupform" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <a class="close" data-dismiss="modal">&times;</a>
-                    <h3>Register as User</h3>
-                </div>
-                <div class="modal-body">
-                    <form action="Registration" method="post">
-                        <b>Image Preview</b><br />
-                        <b>Your Profile Pic</b><br />
-                        <input type="file" name="picture" required/><br />
-                        UserName:<input type="text" name="user" placeholder="User Name" required/><br />
-                        Email Address:<input type="email" name="email" placeholder="Email Id" required/><br />
-                        Password:<input type="password" name="password" placeholder="Password" required/><br />
-                        Confirm Password:<input type="password" placeholder="Password" required/><br />
-                        <input type="submit" value="Sign up">
-                    </form>
-                </div>
+                @{
+                    Html.RenderPartial("_Register");
+                }
             </div>
         </div>
     </div>
     <br />
-    <img src="~/Images/joolelogo.PNG" />
+    <img src="~/Images/joolelogo.PNG" id="logo"/>
     <h3 id="signinlabel">Building Product Selection Platform</h3>
-    @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+    @using (Html.BeginForm("Submit", "Login", FormMethod.Post))
     {
         <div class="center">
-            <input type="text" placeholder="Username or Email" class="textbox" name="Useremail"/><br />
-            <input type="password" placeholder="password" class="textbox" name="Password"/><br />
+            <input type="text" placeholder="Username or Email" class="textbox" name="Useremail" value=@Model.Username required /><br />
+            <input type="password" placeholder="password" class="textbox" name="Password" value=@Model.Password required /><br />
             <input type="submit" value="Log In" id="SubmitButton" />
+            <label id="errorlbl">@Html.ValidationMessageFor(x => x.Password, @ViewData["AuthError"].ToString(), new { @class = "text-danger" })</label>
         </div>
     }
+    
 
 </body>
 
