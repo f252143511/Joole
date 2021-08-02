@@ -22,13 +22,13 @@
 <div class="modal-body">
     <form action="Registration" method="post" style="display:block">
         <b class="imagesStuff">Image Preview</b><br />
-        <img src="" height="100" style="border-radius:50%"> <br>
+        <img src="" height="100" style="border-radius:50%" class="imagesStuff"> <br>
         <b class="imagesStuff">Your Profile Pic</b><br />
         <input type="file" name="picture" onchange="previewFile()" class="imagesStuff" required /><br />
-        <label>UserName:</label> <input type="text" name="user" placeholder="User Name" value=@ViewData["Username"] class="registerBox" align="right" required /><br />
-        <label>Email Address:</label><input type="email" name="email" placeholder="Email Id" value=@ViewData["Email"] class="registerBox" align="right" required /><br />
-        <label>Password:</label><input type="password" name="password" placeholder="Password" class="registerBox" align="right" required /><br />
-        <label>Confirm Password:</label><input type="password" name="password2" placeholder="Password" class="registerBox" align="right" required /><br />
+        <label>UserName:</label> <input type="text" name="user" placeholder="User Name" value=@ViewData["Username"] class="registerBox" id="username" required /><br />
+        <label>Email Address:</label><input type="email" name="email" placeholder="Email Id" value=@ViewData["Email"] class="registerBox" id="email" required /><br />
+        <label>Password:</label><input type="password" name="password" placeholder="Password" class="registerBox" id="password" required /><br />
+        <label>Confirm Password:</label><input type="password" name="password2" placeholder="Password" class="registerBox" id="password2" required /><br />
         <input type="submit" value="Sign up">
     </form>
     @Html.ValidationSummary(false, "", new { @class = "text-danger" })
