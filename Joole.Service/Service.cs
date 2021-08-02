@@ -306,15 +306,22 @@ namespace Joole.Service
             }
             foreach (var item in result)
             {
+                Boolean match = true;
                 int strLen = item.SubCategoryName.Length;
-                String strName = item.SubCategoryName.ToLower().Substring(0, strLen - 1);
-                if (name.Equals(strName))
+                for (int i = 0; i < strLen - 1; i++)
+                {
+                    if (name[i] != item.SubCategoryName.ToLower()[i])
+                    {
+                        match = false;
+                        break;
+                    }
+                }
+                if (match)
                 {
                     return item.SubCategory_ID;
                 }
             }
             return -1;
         }
-
     }
 }
