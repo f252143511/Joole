@@ -42,15 +42,17 @@
                     </div>
                     <input type="hidden" name="Subcategory" value="@Html.DisplayFor(model => model.First().SubCategory)" />
                     <div id="productType">
-                        Product Type ▲ ▼
+                        <span>Product Type</span>
+                        <span id="ptvisible">▼</span>
                     </div>
                     <div id="modelYear">
                         Model Year:
-                        <input type="text" name="beginningYear" id="beginningYear" maxlength="4" size="2" value="@ViewData["beginningYear"]"> -
+                        <input type="text" name="beginningYear" id="beginningYear" maxlength="4" size="2" value="@ViewData["beginningYear"]"> —
                         <input type="text" name="endingYear" id="endingYear" maxlength="4" size="2" value="@ViewData["endingYear"]">
                     </div>
                     <div id="technicalSpecifications">
-                        Technical Specifications ▲ ▼
+                        <span>Technical Specifications</span>
+                        <span id="tsvisible">▼</span>
                     </div>
                     <div id="sliders">
                         <p>

@@ -70,4 +70,26 @@ $(document).ready(function () {
             numchecked--;
         }
     });
+
+    $("#productType").click(function () {
+        if ($("#ptvisible").html() == "▲") {
+            $("#ptvisible").html("▼");
+            $("#modelYear").show();
+        }
+        else if ($("#ptvisible").html() == "▼") {
+            $("#ptvisible").html("▲");
+            $("#modelYear").hide();
+        }
+    });
+    $("#technicalSpecifications").click(function () {
+        if ($("#tsvisible").html() == "▲") {
+            $("#tsvisible").html("▼");
+            $("#sliders").show();
+        }
+        else if ($("#tsvisible").html() == "▼") {
+            $("#tsvisible").html("▲");
+            $("#sliders").hide();
+        }
+    });
+
 });

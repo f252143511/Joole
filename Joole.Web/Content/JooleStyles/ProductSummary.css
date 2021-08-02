@@ -7,7 +7,9 @@
 }
 
 .filter-display {
-    width: 30%;
+    width: 350px;
+}
+form {
     background-color: #F8F8F8;
 }
 
@@ -16,10 +18,26 @@
     padding: 10px 0px;
 }
 
-#search{
+#productType, #technicalSpecifications {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+#productType span, #technicalSpecifications span{
+    margin: 0px 10px;
+}
+
+#search, #modelYear{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#search span {
+    display: flex;
+    justify-content: space-between;
+    width: 130px;
 }
 
 .search-btn {
@@ -30,6 +48,10 @@
     text-decoration: none;
     font-size: medium;
     cursor: default;
+}
+
+#sliders p{
+    margin-left: 30px;
 }
 
 
@@ -71,6 +93,7 @@
 
 #products-display {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 
@@ -80,7 +103,7 @@
     align-items: center;
     margin: 5px;
     border: 1px solid grey;
-    width: 30%;
+    width: 260px;
 }
 
 .product p{
