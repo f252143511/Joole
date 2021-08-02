@@ -224,9 +224,9 @@
     <Content Include="Views\Product\ProductSummary.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Product\ProductsCompare.cshtml" />
-    <Content Include="Views\Login\Registration.cshtml" />
     <Content Include="Views\Shared\_Searchbar.cshtml" />
     <Content Include="Views\Shared\SubCategoryOptionsPartial.cshtml" />
+    <Content Include="Views\Login\_Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
