@@ -5,103 +5,185 @@
     Layout = "~/Views/Shared/_Searchbar.cshtml";
     ViewBag.Title = "ProductsCompare";
 }
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-@Styles.Render("~/Content/css")
-@Scripts.Render("~/bundles/modernizr")
-<title>Compare Products - Joole</title>
+
+<head>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrinkg-to-fit=no">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        table tr th {
+            width: 50%;
+        }
+    </style>
+</head>
+
+<!-- Navigation Bar Start -->
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark justify-content-between">
+    <a class="navbar-header" href=""><img class="logo" src="joole.jpg" height="30"></a>
+    <form class="form-inline justify-content-center" id="navBarSearchForm">
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    Category
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">dbo 1</a>
+                    <a class="dropdown-item" href="#">dbo 2</a>
+                    <a class="dropdown-item" href="#">dbo 3</a>
+                    <a class="dropdown-item" href="#">dbo 4</a>
+                </div>
+            </li>
+        </ul>
+
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-info my-2 my-sm-0" type="submit">
+            Search
+        </button>
+
+    </form>
+    </div>
+    <div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ml-auto ">
+                <li class="nav-item dropwdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        <img src="profile.jpg" alt="profilepic">
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">dbo 1</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Navigation Bar ends -->
+<br>
+<br>
+<br>
+<br>
+
 <div class="container">
     <table class="table table-bordered table-image table-md">
         @foreach (var item in Model)
         {
 
-            <thead>
-                <tr>
-                    <td class="w-25">
-                    </td>
-                    <td class="w-25">
-                        <img src="joole.jpg" class="img-fluid img-thumbnail">
-                    </td>
-                    <td class="w-25">
-                        <img src="joole.jpg" class="img-fluid img-thumbnail">
-                    </td>
-                    <td class="w-25">
-                        <img src="joole.jpg" class="img-fluid img-thumbnail">
-                    </td>
-                </tr>
-            </thead>
-            <thead class="thead-light">
-                <tr>
-                    <th scope="col" colspan="4">DESCRIPTION</th>
-                </tr>
-            </thead>
-            <tbody>
-            <thead class="thead-light">
-                <tr>
-                    <th scope="row">dbo1</th>
-                    <td>dbo</td>
-                    <td>dbo</td>
-                    <td>dbo</td>
-                </tr>
-                <tr>
-                    <th scope="row">Series</th>
-                    <td>@Html.DisplayFor(modelItem => item.Series)</td>
-                    <td>dbo</td>
-                    <td>dbo</td>
-                </tr>
-                <tr>
-                    <th scope="row">Model</th>
-                    <td>@Html.DisplayFor(modelItem => item.Model)</td>
-                    <td>dbo</td>
-                    <td>dbo</td>
-                </tr>
-            <thead class="thead-light">
-                <tr>
-                    <th scope="col" colspan="4">TYPE</th>
-                </tr>
-                <tr>
-                    <th scope="row">dbo4</th>
-                    <td>dbo</td>
-                    <td>dbo</td>
-                    <td>dbo</td>
-                </tr>
-                <tr>
-                    <th scope="row">dbo5</th>
-                    <td>dbo</td>
-                    <td>dbo</td>
-                    <td>dbo</td>
-                </tr>
-                <tr>
-                    <th scope="row">dbo6</th>
-                    <td>dbo</td>
-                    <td>dbo</td>
-                    <td>dbo</td>
-                </tr>
-                <tr>
-                    <th scope="row">dbo7</th>
-                    <td>dbo</td>
-                    <td>dbo</td>
-                    <td>dbo</td>
-                </tr>
-                <tr>
-                    <th scope="row">dbo8</th>
-                    <td>dbo</td>
-                    <td>dbo</td>
-                    <td>dbo</td>
-                </tr>
-                <tr>
-                    <th scope="row">dbo9</th>
-                    <td>dbo</td>
-                    <td>dbo</td>
-                    <td>dbo</td>
-                </tr>
-            <thead class="thead-light">
-                <tr>
-                    <th scope="col" colspan="4">TECHNICAL SPECIFACTIONS</th>
-                </tr>
-                </tbody>
+        <thead>
+
+            <tr>
+                <td class="w-25">
+                </td>
+            </tr>
+
+        </thead>
+        <thead class="thead-light">
+            <tr>
+                <th scope="col" colspan="4">DESCRIPTION</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        <thead class="thead-light">
+            <tr>
+                <th scope="row">Manufacturer</th>
+                <td>@Html.DisplayFor(modelItem => item.Manufacturer) </td>
+            </tr>
+            <tr>
+                <th scope="row">Series</th>
+                <td>@Html.DisplayFor(modelItem => item.Series)</td>
+            </tr>
+            <tr>
+                <th scope="row">Model</th>
+                <td>@Html.DisplayFor(modelItem => item.Model)</td>
+            </tr>
+            }
+        <thead class="thead-light">
+            <tr>
+                <th scope="col" colspan="4">TYPE</th>
+            </tr>
+            <tr>
+                <th scope="row">Use Type</th>
+                <td>@Html.DisplayFor(model => item.UseType)</td>
+            </tr>
+            <tr>
+                <th scope="row">Application</th>
+                <td>@Html.DisplayFor(model => item.Application) </td>
+            </tr>
+            <tr>
+                <th scope="row">Mounting Location</th>
+                <td>@Html.DisplayFor(model => item.MountingLocation) </td>
+            </tr>
+            <tr>
+                <th scope="row">Accessories</th>
+                <td>@Html.DisplayFor(model => item.Accessories)</td>
+            </tr>
+            <tr>
+                <th scope="row">Model Year</th>
+                <td>@Html.DisplayFor(model => item.ModelYear)</td>
+            </tr>
+        <thead class="thead-light">
+            <tr>
+                <th scope="col" colspan="4">TECHNICAL SPECIFACTIONS</th>
+            </tr>
+            <tr>
+                <th scope="row">Air Flow(CFM)</th>
+                <td>@Html.DisplayFor(model => item.AirFlow)</td>
+            </tr>
+            <tr>
+                <th scope="row">Power(W)</th>
+                <th>Min</th>
+                <td>@Html.DisplayFor(model => item.PowerMin)</td>
+                <th>Max</th>
+                <td>@Html.DisplayFor(model => item.PowerMax)</td>
+            </tr>
+            <tr>
+                <th scope="row">Operating Voltage(VAC)</th>
+                <th>Min</th>
+                <td>@Html.DisplayFor(model => item.OperatingVoltageMin)</td>
+                <th>Max</th>
+                <td>@Html.DisplayFor(model => item.OperatingVoltageMax)</td>
+            </tr>
+            <tr>
+                <th scope="row">Fan Speed (RPM)</th>
+                <th>Min</th>
+                <td>@Html.DisplayFor(model => item.FanSpeedMin)</td>
+                <th>Max</th>
+                <td>@Html.DisplayFor(model => item.FanSpeedMax)</td>
+            </tr>
+            <tr>
+                <th scope="row">Number of fan speeds</th>
+                <td>@Html.DisplayFor(model => item.NumberOfFanSpeed)</td>
+            </tr>
+            <tr>
+                <th scope="row">Sound at max speed (dBA)</th>
+                <td>@Html.DisplayFor(model => item.SoundAtMaxSpeed)</td>
+            </tr>
+            <tr>
+                <th scope="row">Fan sweep diameter (in)</th>
+                <td>@Html.DisplayFor(model => item.FanSweepDiameter)</td>
+            </tr>
+            <tr>
+                <th scope="row">Height(in)</th>
+                <th>Min</th>
+                <td>@Html.DisplayFor(model => item.HeightMin)</td>
+                <th>Max</th>
+                <td>@Html.DisplayFor(model => item.HeightMax)</td>
+            </tr>
+            <tr>
+                <th scope="row">Weight (lbs)</th>
+                <td>@Html.DisplayFor(model => item.Weight)</td>
+            </tr>
+            </tbody>
             }
 </table>
 </div>
-
-

@@ -23,7 +23,7 @@ namespace Joole.Web.Controllers
             return View(model);
         }
         [HttpGet]
-        public ActionResult ProductsCompare(int id1, int id2, int id3)
+        public ActionResult ProductsCompare(int id1 = 0, int id2 = 0, int id3 = 0)
         {
             Service.Service sv = new Service.Service();
             var model = sv.GetComparison(id1, id2, id3).ToList();
