@@ -360,17 +360,274 @@ namespace Joole.Service
         //}
         public List<ProductModel> GetComparison(int id1, int id2, int id3)
         {
-            List<ProductModel> Products = new List<ProductModel>();
-            var result = UOW.product.GetAll();
+            List<ProductModel> ProductModel = new List<ProductModel>();
+            var products = UOW.product.GetAll();
+            var properties = UOW.property.GetAll();
+            var propertyValues = UOW.propertyvalue.GetAll();
+            var manufacturers = UOW.manufacturer.GetAll();
 
-            foreach (var item in result)
+            var query1 = from propertyvalue in propertyValues
+                         join property in properties on propertyvalue.Property_ID equals property.Property_ID
+                         join product in products on propertyvalue.Product_ID equals product.Product_ID
+                         join manufacturer in manufacturers on product.Manufacturer_ID equals manufacturer.Manufacturer_ID
+                         where product.Product_ID == id1
+                         select new { product.Product_Image, product.Product_ID, product.Model, product.Series, propertyvalue.Value, manufacturer.Name, property.Property_Name };
+
+            var query2 = from propertyvalue in propertyValues
+                         join property in properties on propertyvalue.Property_ID equals property.Property_ID
+                         join product in products on propertyvalue.Product_ID equals product.Product_ID
+                         join manufacturer in manufacturers on product.Manufacturer_ID equals manufacturer.Manufacturer_ID
+                         where product.Product_ID == id2
+                         select new { product.Product_Image, product.Product_ID, product.Model, product.Series, propertyvalue.Value, manufacturer.Name, property.Property_Name };
+
+            var query3 = from propertyvalue in propertyValues
+                         join property in properties on propertyvalue.Property_ID equals property.Property_ID
+                         join product in products on propertyvalue.Product_ID equals product.Product_ID
+                         join manufacturer in manufacturers on product.Manufacturer_ID equals manufacturer.Manufacturer_ID
+                         where product.Product_ID == id3
+                         select new { product.Product_Image, product.Product_ID, product.Model, product.Series, propertyvalue.Value, manufacturer.Name, property.Property_Name };
+
+
+
+            foreach (var item in products)
             {
-                ProductModel pr = new ProductModel();
-                pr.Model = item.Model;
-                pr.Series = item.Series;
-                Products.Add(pr);
+                ProductModel pv1 = new ProductModel();
+                if (pv1.Product_ID == item.Product_ID)
+                {
+                    pv1.Image = item.Product_Image;
+                    pv1.Series = item.Series;
+                    pv1.Manufacturer = item.Manufacturer.ToString();
+                    pv1.Model = item.Model;
+                }
+
+                ProductModel pv2 = new ProductModel();
+                if (pv2.Product_ID == item.Product_ID)
+                {
+                    pv2.Image = item.Product_Image;
+                    pv2.Series = item.Series;
+                    pv2.Manufacturer = item.Manufacturer.ToString();
+                    pv2.Model = item.Model;
+                }
+
+                ProductModel pv3 = new ProductModel();
+                if (pv3.Product_ID == item.Product_ID)
+                {
+                    pv3.Image = item.Product_Image;
+                    pv3.Series = item.Series;
+                    pv3.Manufacturer = item.Manufacturer.ToString();
+                    pv3.Model = item.Model;
+                }
+
+
+                pv1.Image = query1.First().Product_Image;
+                pv1.Product_ID = query1.First().Product_ID;
+                pv1.Series = query1.First().Series;
+                pv1.Manufacturer = query1.First().Name;
+                pv1.Model = query1.First().Model;
+                pv2.Image = query2.First().Product_Image;
+                pv2.Product_ID = query2.First().Product_ID;
+                pv2.Series = query2.First().Series;
+                pv2.Manufacturer = query2.First().Name;
+                pv2.Model = query2.First().Model;
+                pv3.Image = query3.First().Product_Image;
+                pv3.Product_ID = query3.First().Product_ID;
+                pv3.Series = query3.First().Series;
+                pv3.Manufacturer = query3.First().Name;
+                pv3.Model = query3.First().Model;
+                foreach (var property in query1)
+                {
+                    if (property.Product_ID == item.Product_ID)
+                    {
+                        switch (property.Property_Name)
+                        {
+                            case "Use Type":
+                                pv1.UseType = property.Value;
+                                break;
+                            case "Application":
+                                pv1.Application = property.Value;
+                                break;
+                            case "Mounting Location":
+                                pv1.MountingLocation = property.Value;
+                                break;
+                            case "Accessories":
+                                pv1.Accessories = property.Value;
+                                break;
+                            case "Air Flow":
+                                pv1.AirFlow = property.Value;
+                                break;
+                            case "Model Year":
+                                pv1.ModelYear = property.Value;
+                                break;
+                            case "Power_Min":
+                                pv1.PowerMin = property.Value;
+                                break;
+                            case "Power_Max":
+                                pv1.PowerMax = property.Value;
+                                break;
+                            case "Operating Voltage_Min":
+                                pv1.OperatingVoltageMin = property.Value;
+                                break;
+                            case "Operating Voltage_Max":
+                                pv1.OperatingVoltageMax = property.Value;
+                                break;
+                            case "Fan speed_Min":
+                                pv1.FanSpeedMin = property.Value;
+                                break;
+                            case "Fan speed_Max":
+                                pv1.FanSpeedMax = property.Value;
+                                break;
+                            case "Number of fan speeds":
+                                pv1.NumberOfFanSpeed = property.Value;
+                                break;
+                            case "Sound at max speed":
+                                pv1.SoundAtMaxSpeed = property.Value;
+                                break;
+                            case "Fan sweep diameter":
+                                pv1.FanSweepDiameter = property.Value;
+                                break;
+                            case "Height_Min":
+                                pv1.HeightMin = property.Value;
+                                break;
+                            case "Height_Max":
+                                pv1.HeightMax = property.Value;
+                                break;
+                            case "Weight":
+                                pv1.Weight = property.Value;
+                                break;
+                        }
+                    }
+                }
+                foreach (var property in query2)
+                {
+                    if (property.Product_ID == item.Product_ID)
+                    {
+                        switch (property.Property_Name)
+                        {
+                            case "Use Type":
+                                pv2.UseType = property.Value;
+                                break;
+                            case "Application":
+                                pv2.Application = property.Value;
+                                break;
+                            case "Mounting Location":
+                                pv2.MountingLocation = property.Value;
+                                break;
+                            case "Accessories":
+                                pv2.Accessories = property.Value;
+                                break;
+                            case "Air Flow":
+                                pv2.AirFlow = property.Value;
+                                break;
+                            case "Model Year":
+                                pv2.ModelYear = property.Value;
+                                break;
+                            case "Power_Min":
+                                pv2.PowerMin = property.Value;
+                                break;
+                            case "Power_Max":
+                                pv2.PowerMax = property.Value;
+                                break;
+                            case "Operating Voltage_Min":
+                                pv2.OperatingVoltageMin = property.Value;
+                                break;
+                            case "Operating Voltage_Max":
+                                pv2.OperatingVoltageMax = property.Value;
+                                break;
+                            case "Fan speed_Min":
+                                pv2.FanSpeedMin = property.Value;
+                                break;
+                            case "Fan speed_Max":
+                                pv2.FanSpeedMax = property.Value;
+                                break;
+                            case "Number of fan speeds":
+                                pv2.NumberOfFanSpeed = property.Value;
+                                break;
+                            case "Sound at max speed":
+                                pv2.SoundAtMaxSpeed = property.Value;
+                                break;
+                            case "Fan sweep diameter":
+                                pv2.FanSweepDiameter = property.Value;
+                                break;
+                            case "Height_Min":
+                                pv2.HeightMin = property.Value;
+                                break;
+                            case "Height_Max":
+                                pv2.HeightMax = property.Value;
+                                break;
+                            case "Weight":
+                                pv2.Weight = property.Value;
+                                break;
+                        }
+                    }
+                }
+                foreach (var property in query3)
+                {
+                    if (property.Product_ID == item.Product_ID)
+                    {
+                        switch (property.Property_Name)
+                        {
+                            case "Use Type":
+                                pv3.UseType = property.Value;
+                                break;
+                            case "Application":
+                                pv3.Application = property.Value;
+                                break;
+                            case "Mounting Location":
+                                pv3.MountingLocation = property.Value;
+                                break;
+                            case "Accessories":
+                                pv3.Accessories = property.Value;
+                                break;
+                            case "Air Flow":
+                                pv3.AirFlow = property.Value;
+                                break;
+                            case "Model Year":
+                                pv3.ModelYear = property.Value;
+                                break;
+                            case "Power_Min":
+                                pv3.PowerMin = property.Value;
+                                break;
+                            case "Power_Max":
+                                pv3.PowerMax = property.Value;
+                                break;
+                            case "Operating Voltage_Min":
+                                pv3.OperatingVoltageMin = property.Value;
+                                break;
+                            case "Operating Voltage_Max":
+                                pv3.OperatingVoltageMax = property.Value;
+                                break;
+                            case "Fan speed_Min":
+                                pv3.FanSpeedMin = property.Value;
+                                break;
+                            case "Fan speed_Max":
+                                pv3.FanSpeedMax = property.Value;
+                                break;
+                            case "Number of fan speeds":
+                                pv3.NumberOfFanSpeed = property.Value;
+                                break;
+                            case "Sound at max speed":
+                                pv3.SoundAtMaxSpeed = property.Value;
+                                break;
+                            case "Fan sweep diameter":
+                                pv3.FanSweepDiameter = property.Value;
+                                break;
+                            case "Height_Min":
+                                pv3.HeightMin = property.Value;
+                                break;
+                            case "Height_Max":
+                                pv3.HeightMax = property.Value;
+                                break;
+                            case "Weight":
+                                pv3.Weight = property.Value;
+                                break;
+                        }
+                    }
+                }
+                ProductModel.Add(pv1);
+                ProductModel.Add(pv2);
+                ProductModel.Add(pv3);
             }
-            return Products;
+            return ProductModel;
         }
 
         public List<SearchModel> GetCategoryListAll()
