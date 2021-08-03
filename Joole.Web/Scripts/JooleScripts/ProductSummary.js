@@ -3,7 +3,7 @@
         range: true,
         min: 1000,
         max: 9000,
-        values: [1000, 9000],
+        values: [$("#airflow-min-amount").val(), $("#airflow-max-amount").val()],
         slide: function (event, ui) {
             $("#airflow-min-amount").val(ui.values[0]);
             $("#airflow-max-amount").val(ui.values[1]);
@@ -17,7 +17,7 @@ $(function () {
         range: true,
         min: 10,
         max: 65,
-        values: [10, 65],
+        values: [$("#power-min-amount").val(), $("#power-max-amount").val()],
         slide: function (event, ui) {
             $("#power-min-amount").val(ui.values[0]);
             $("#power-max-amount").val(ui.values[1]);
@@ -31,7 +31,7 @@ $(function () {
         range: true,
         min: 20,
         max: 50,
-        values: [20, 50],
+        values: [$("#sound-min-amount").val(), $("#sound-max-amount").val()],
         slide: function (event, ui) {
             $("#sound-min-amount").val(ui.values[0]);
             $("#sound-max-amount").val(ui.values[1]);
@@ -45,7 +45,7 @@ $(function () {
         range: true,
         min: 18,
         max: 60,
-        values: [18, 60],
+        values: [$("#sweep-min-amount").val(), $("#sweep-max-amount").val()],
         slide: function (event, ui) {
             $("#sweep-min-amount").val(ui.values[0]);
             $("#sweep-max-amount").val(ui.values[1]);

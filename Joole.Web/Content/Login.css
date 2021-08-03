@@ -19,6 +19,7 @@
     background-color: dodgerblue;
     margin-left: 90%;
     border-radius: 5px;
+    border: none;
 }
 
 #signinlabel {

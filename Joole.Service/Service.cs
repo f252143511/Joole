@@ -234,7 +234,10 @@ namespace Joole.Service
             return result;
         }
         public List<ProductModel> GetProducts(string Subcategory, int beginningYear, int endingYear,
-            int airflowMinAmount, int airflowMaxAmount)
+            int airflowMinAmount, int airflowMaxAmount,
+            double powerMinAmount, double powerMaxAmount,
+            int soundMinAmount, int soundMaxAmount,
+            int sweepMinAmount, int sweepMaxAmount)
         {
             var products = UOW.product.GetAll();
             var properties = UOW.property.GetAll();
@@ -263,6 +266,9 @@ namespace Joole.Service
             var filter = from product in result
                               where int.Parse(product.ModelYear) >= beginningYear && int.Parse(product.ModelYear) <= endingYear
                               && int.Parse(product.AirFlow) >= airflowMinAmount && int.Parse(product.AirFlow) <= airflowMaxAmount
+                              && double.Parse(product.PowerMax) >= powerMinAmount && double.Parse(product.PowerMax) <= powerMaxAmount
+                              && int.Parse(product.SoundAtMaxSpeed) >= soundMinAmount && int.Parse(product.SoundAtMaxSpeed) <= soundMaxAmount
+                              && int.Parse(product.FanSweepDiameter) >= sweepMinAmount && int.Parse(product.FanSweepDiameter) <= sweepMaxAmount
                          select product;
 
             

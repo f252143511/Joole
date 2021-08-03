@@ -13,13 +13,27 @@ namespace Joole.Web.Controllers
     {
         [HttpGet]
         public ActionResult ProductSummary(string subcategory, int beginningYear = 0, int endingYear= 2050, 
-            int airflowMinAmount = 1000, int airflowMaxAmount= 9000)
+            int airflowMinAmount = 1000, int airflowMaxAmount= 9000,
+            double powerMinAmount = 10, double powerMaxAmount = 65,
+            int soundMinAmount = 20, int soundMaxAmount = 50,
+            int sweepMinAmount = 18, int sweepMaxAmount = 60)
         {
             Service.Service sv = new Service.Service();
             var model = sv.GetProducts(subcategory, beginningYear, endingYear, 
-                airflowMinAmount, airflowMaxAmount).ToList();
+                airflowMinAmount, airflowMaxAmount,
+                powerMinAmount, powerMaxAmount,
+                soundMinAmount, soundMaxAmount,
+                sweepMinAmount, sweepMaxAmount).ToList();
             ViewData["beginningYear"] = beginningYear;
             ViewData["endingYear"] = endingYear;
+            ViewData["airflowMinAmount"] = airflowMinAmount;
+            ViewData["airflowMaxAmount"] = airflowMaxAmount;
+            ViewData["powerMinAmount"] = powerMinAmount;
+            ViewData["powerMaxAmount"] = powerMaxAmount;
+            ViewData["soundMinAmount"] = soundMinAmount;
+            ViewData["soundMaxAmount"] = soundMaxAmount;
+            ViewData["sweepMinAmount"] = sweepMinAmount;
+            ViewData["sweepMaxAmount"] = sweepMaxAmount;
             return View(model);
         }
         [HttpGet]

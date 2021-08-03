@@ -59,40 +59,40 @@
                             <label for="airflow-amount">⮃ Airflow (CFM) </label>
                         </p>
                         <div class="slider-container">
-                            <input readonly name="airflowMinAmount" type="text" id="airflow-min-amount">
+                            <input readonly name="airflowMinAmount" type="text" id="airflow-min-amount" value="@ViewData["airflowMinAmount"]">
                             <div class="slider" id="airflow-slider"></div>
-                            <input readonly name="airflowMaxAmount" type="text" id="airflow-max-amount">
+                            <input readonly name="airflowMaxAmount" type="text" id="airflow-max-amount" value="@ViewData["airflowMaxAmount"]">
                         </div>
                         <p>
                             <label for="power-amount">⮃ Max Power (W) </label>
                         </p>
                         <div class="slider-container">
-                            <input readonly name="power-min-amount" type="text" id="power-min-amount">
+                            <input readonly name="powerMinAmount" type="text" id="power-min-amount" value="@ViewData["powerMinAmount"]">
                             <div class="slider" id="power-slider"></div>
-                            <input readonly name="power-max-amount" type="text" id="power-max-amount">
+                            <input readonly name="powerMaxAmount" type="text" id="power-max-amount" value="@ViewData["powerMaxAmount"]">
                         </div>
                         <p>
                             <label for="sound-amount">⮃ Sound at max speed (dBA)</label>
                         </p>
                         <div class="slider-container">
-                            <input readonly name="sound-min-amount" type="text" id="sound-min-amount">
+                            <input readonly name="soundMinAmount" type="text" id="sound-min-amount" value="@ViewData["soundMinAmount"]">
                             <div class="slider" id="sound-slider"></div>
-                            <input readonly name="sound-max-amount" type="text" id="sound-max-amount">
+                            <input readonly name="soundMaxAmount" type="text" id="sound-max-amount" value="@ViewData["soundMaxAmount"]">
                         </div>
                         <p>
                             <label for="sweep-amount">⮃ Fan sweep diameter (in) </label>
                         </p>
                         <div class="slider-container">
-                            <input readonly name="sweep-min-amount" type="text" id="sweep-min-amount">
+                            <input readonly name="sweepMinAmount" type="text" id="sweep-min-amount" value="@ViewData["sweepMinAmount"]">
                             <div class="slider" id="sweep-slider"></div>
-                            <input readonly name="sweep-max-amount" type="text" id="sweep-max-amount">
+                            <input readonly name="sweepMaxAmount" type="text" id="sweep-max-amount" value="@ViewData["sweepMaxAmount"]">
                         </div>
                     </div>
                 </form>
             </div>
             <div class="product-display">
                 <div id="category-display">
-                    <p><b id="Category">@Html.DisplayFor(model => model.First().Category) > </b> <span id="SubCategory">@Html.DisplayFor(model => model.First().SubCategory)</span></p>
+                    <p><b id="Category">Mechanical > </b> <span id="SubCategory">Fans</span></p>
                 </div>
                 <div id="products-display">
 
